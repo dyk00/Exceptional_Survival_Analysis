@@ -89,6 +89,13 @@ for p_idx, p_id in enumerate(patient_id):
 
 df = pd.DataFrame(data)
 
+# for creating avg_survival_probability for each unique admission
+# REMOVE if not necessary
+unique_admissions = df["admission_id"].unique()
+random_probs = np.random.rand(len(unique_admissions))
+admission_prob_map = dict(zip(unique_admissions, random_probs))
+df["avg_survival_probability"] = df["admission_id"].map(admission_prob_map)
+
 # set output directory
 script_dir = get_dir()
 output_file = os.path.join(script_dir, "example_data.parquet")
