@@ -1,7 +1,8 @@
 from collections import deque
+from .priority_queue import PriorityQueue
 
 
-def emm_q(dataset, quality_measure, refinement_operator, w, d, q, constraints):
+def emm_beam(dataset, quality_measure, refinement_operator, w, d, q, constraints):
 
     candidate_queue = deque()
     candidate_queue.append([])
