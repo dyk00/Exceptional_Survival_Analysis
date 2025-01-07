@@ -6,6 +6,7 @@ from .constraints import satisfies_all
 def emm_beam(dataset, quality_measure, refinement_operator, w, d, q, constraints):
 
     # initialize candidate queue
+    # double-ended queue with O(1) performance for adding and removing
     candidate_queue = deque()
 
     # start with empty description
@@ -23,8 +24,7 @@ def emm_beam(dataset, quality_measure, refinement_operator, w, d, q, constraints
         # while candidate queue is not empty
         while candidate_queue:
 
-            # get best description (a list of descriptions),
-            # in our case the description with the lowest average survival probability
+            # get one description at a time in BFS manner per depth
             seed = candidate_queue.popleft()
 
             # generate new descriptions by applying refinement operator
@@ -48,10 +48,11 @@ def emm_beam(dataset, quality_measure, refinement_operator, w, d, q, constraints
         # while beam is not empty
         while beam:
 
-            # get the best description and remove it
+            # get best description (a list of descriptions) and remove it,
+            # in our case the description with the lowest average survival probability
             best_desc = beam.get_pop_front_element()
 
-            # # remove the best description from beam
+            # # remove the best description from beam, O(n)
             # beam.heap.pop(0)
 
             # update the best description to candidate queue
