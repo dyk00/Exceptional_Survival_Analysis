@@ -1,9 +1,11 @@
 from collections import deque
 from .priority_queue import PriorityQueue
 from .constraints import satisfies_all
+from .refinement import refinement_operator
+from .quality_measure import quality_measure
 
 
-def emm_beam(dataset, quality_measure, refinement_operator, w, d, q, constraints):
+def emm_beam(dataset, columns, col_bins, w, d, q, constraints):
 
     # initialize candidate queue
     # double-ended queue with O(1) performance for adding and removing
@@ -25,10 +27,10 @@ def emm_beam(dataset, quality_measure, refinement_operator, w, d, q, constraints
         while candidate_queue:
 
             # get one description at a time in BFS manner per depth
-            seed = candidate_queue.popleft()
+            seed_desc = candidate_queue.popleft()
 
             # generate new descriptions by applying refinement operator
-            new_desc = refinement_operator(seed)
+            new_desc = refinement_operator(seed_desc, columns, col_bins)
 
             # for each new description
             for desc in new_desc:
