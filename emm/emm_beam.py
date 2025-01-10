@@ -30,7 +30,7 @@ def emm_beam(dataset, columns, col_bins, w, d, q, constraints):
             seed_desc = candidate_queue.popleft()
 
             # generate new descriptions by applying refinement operator
-            new_desc = refinement_operator(seed_desc, columns, col_bins)
+            new_desc = refinement_operator(seed_desc, dataset, columns, col_bins)
 
             # for each new description
             for desc in new_desc:
