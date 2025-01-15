@@ -2,6 +2,9 @@ import pandas as pd
 
 # apply equal frequency binning
 # so that approximately equal number of values are in each bin
+
+# note: you could use qcut, however when there are duplicates
+# it does not assign approximately equal numbers in each bin even if you drop duplicates
 def discretize_numeric_cols(df, columns, bins_count=2):
 
     # initialize total discretized variables
