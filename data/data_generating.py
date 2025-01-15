@@ -98,7 +98,8 @@ df["avg_survival_probability"] = df["admission_id"].map(admission_prob_map)
 
 # set output directory
 script_dir = get_dir()
-output_file = os.path.join(script_dir, "example_data.parquet")
+output_file = os.path.join(script_dir, "example_data_with_prob.parquet")
+# output_file = os.path.join(script_dir, "example_data_without_prob.parquet")
 
 # save parquet file
 df.to_parquet(output_file, engine="pyarrow", index=False)
