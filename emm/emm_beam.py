@@ -3,6 +3,7 @@ from .priority_queue import PriorityQueue
 from .constraints import satisfies_all
 from .refinement import refinement_operator
 from .quality_measure import quality_measure
+import heapq
 
 
 def emm_beam(dataset, columns, col_bins, w, d, q, constraints):
@@ -36,7 +37,7 @@ def emm_beam(dataset, columns, col_bins, w, d, q, constraints):
             for desc in new_desc:
 
                 # calculate the quality measure
-                quality = quality_measure(desc)
+                quality = quality_measure(desc, dataset)
 
                 # if the description satisfies all constraints
                 if satisfies_all(desc, dataset, constraints):
@@ -48,18 +49,15 @@ def emm_beam(dataset, columns, col_bins, w, d, q, constraints):
                     beam.insert_with_priority(desc, quality)
 
         # while beam is not empty
-        while beam:
+        while not beam.empty():
 
-            # get best description (a list of descriptions) and remove it,
-            # in our case the description with the lowest average survival probability
-            best_desc = beam.get_pop_front_element()
+            # get candidate descriptions and remove them from beam one by one,
+            candidate_desc = beam.get_pop_front_element()
 
-            # # remove the best description from beam, O(n)
-            # beam.heap.pop(0)
-
-            # update the best description to candidate queue
+            # update the descriptions to candidate queue
             # to be considered in the next level
-            candidate_queue.append(best_desc)
+            if candidate_desc is not None:
+                candidate_queue.append(list(candidate_desc))
 
     # return the result set which has the best descriptions
     return result_set
