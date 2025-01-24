@@ -34,7 +34,7 @@ max_entry = 3
 # generate unique patient ids
 patient_id = [str(uuid.uuid4()) for _ in range(n_patient)]
 age = np.random.randint(18, 90, size=n_patient)
-gender = np.random.choice([True, False], size=n_patient)
+male = np.random.choice([True, False], size=n_patient)
 
 data = []
 
@@ -81,7 +81,7 @@ for p_idx, p_id in enumerate(patient_id):
                 "bp2": bp2[i],
                 "temp": temp[i],
                 "age": age[p_idx],
-                "gender": gender[p_idx],
+                "male": male[p_idx],
                 "time_to_event": time_to_event,
                 "is_first": is_first,
             }
