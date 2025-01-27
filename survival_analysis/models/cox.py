@@ -15,9 +15,13 @@ def fit_cox_sksurv(X_train, y_train_surv, alpha_min_ratio=0.05, l1_ratio=0.5):
     return coxph
 
 
-def predict_cox_sksurv(coxph, X_test):
+def predict_hazard_cox_sksurv(coxph, X_test):
     prediction = coxph.predict(X_test)
     return prediction
+
+
+def predict_probability_cox_sksurv(coxph_sksurv, X_test):
+    return coxph_sksurv.predict_survival_function(X_test)
 
 
 # cox training using lifelines
@@ -32,7 +36,7 @@ def fit_cox_lifelines(
 
 # predict survival probability S(t) (prob of no event occured (event-free) by t)
 # failure probability S(t) = 1- F(t) (prob of event occured by t)
-def predict_probability_cox(cph, X_test, times):
+def predict_probability_cox_lifelines(cph, X_test, times):
     surv_prob = cph.predict_survival_function(X_test, times=times)
     return surv_prob
 
@@ -40,7 +44,7 @@ def predict_probability_cox(cph, X_test, times):
 # predict relative risk/hazard ratio for each individual
 # so how much greater one’s hazard is relative to another
 # but not probability
-def predict_hazard_cox(cph, X_test):
+def predict_hazard_cox_lifelines(cph, X_test):
     return cph.predict_partial_hazard(X_test)
 
 

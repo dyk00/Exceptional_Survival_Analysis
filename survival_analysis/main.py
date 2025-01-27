@@ -28,11 +28,12 @@ from data_processing.surv_util import (
 from survival_analysis.models.cox import (
     fit_cox_lifelines,
     fit_cox_sksurv,
-    predict_cox_sksurv,
+    predict_hazard_cox_sksurv,
+    predict_probability_cox_sksurv,
+    predict_probability_cox_lifelines,
+    predict_hazard_cox_lifelines,
     test_proportional_hazards,
     check_cox_assumptions,
-    predict_probability_cox,
-    predict_hazard_cox,
 )
 
 # plot
@@ -71,7 +72,8 @@ def main():
     coxph_sksurv = fit_cox_sksurv(
         X_train, y_train_surv, alpha_min_ratio=0.05, l1_ratio=0.5
     )
-    prediction_sksurv = predict_cox_sksurv(coxph_sksurv, X_test)
+    hazard_sksurv = predict_hazard_cox_sksurv(coxph_sksurv, X_test)
+    surv_probs_sksurv = predict_probability_cox_sksurv(coxph_sksurv, X_test)
 
     # fit the cox and test proportional hazards on lifelines
     cph = fit_cox_lifelines(train_df, duration_col, event_col)
@@ -113,7 +115,7 @@ def main():
     )
 
     # predict survival probabilities
-    survival = predict_probability_cox(cph, X_test, time_grid)
+    survival = predict_probability_cox_lifelines(cph, X_test, time_grid)
     surv_probs = survival.T.to_numpy()
 
     # plot per individuals
@@ -122,7 +124,7 @@ def main():
 
     # predict hazard scores
     # interchancable with 'prediction' using sksurv coxph
-    hazard_scores = predict_hazard_cox(cph, X_test)
+    hazard_scores = predict_hazard_cox_lifelines(cph, X_test)
 
     # corcordance index for training set
     print("Concordance Index on Training Set:", cph.concordance_index_)
@@ -137,11 +139,11 @@ def main():
     # the usage:
     # https://scikit-survival.readthedocs.io/en/stable/user_guide/evaluating-survival-models.html
     c_index_sk = concordance_index_censored(
-        y_test_surv[event_col], y_test_surv[duration_col], prediction_sksurv
+        y_test_surv[event_col], y_test_surv[duration_col], hazard_sksurv
     )
     print(f"Concordance Index (sksurv) on Test Set: {c_index_sk[0]}")
 
-    c_index_ipcw = get_c_index_ipcw(y_train_surv, y_test_surv, prediction_sksurv)
+    c_index_ipcw = get_c_index_ipcw(y_train_surv, y_test_surv, hazard_sksurv)
     print(f"IPCW Concordance Index: {c_index_ipcw:.4f}")
 
     # estimate should be the survival probabilites
