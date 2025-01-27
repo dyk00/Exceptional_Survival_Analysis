@@ -36,6 +36,15 @@ from survival_analysis.models.cox import (
     check_cox_assumptions,
 )
 
+# logistic regression
+from survival_analysis.models.lr import (
+    fit_lr,
+    predict_lr,
+    evaluate_lr,
+    plot_confusion_matrix,
+    plot_roc_curve,
+)
+
 # plot
 from survival_analysis.evaluation.plot import (
     plot_coef_ci,
@@ -178,8 +187,22 @@ def main():
 
     # # get new test df after fitting cox to run emm afterwards
     # cox_with_prob = get_avg_hourly(test_df, survival, duration_col)
-    # print(cox_with_prob.head())
-    # # save_parquet(df, "./data", "cox_with_prob.parquet")
+    # save_parquet(df, "./data", "cox_with_prob.parquet")
+
+    # fit logistic regression
+    lr = fit_lr(X_train, y_train, duration_col, event_col)
+
+    _, _, lr_test_df = predict_lr(lr, X_test, test_df)
+    print(lr_test_df)
+
+    # evluate metrics and get typecasted variables
+    y_true, y_pred, y_pred_prob = evaluate_lr(lr, X_test, y_test, test_df, event_col)
+
+    # plot confusion matrix
+    plot_confusion_matrix(y_true, y_pred)
+
+    # plot ROC curve
+    plot_roc_curve(y_true, y_pred_prob)
 
 
 if __name__ == "__main__":
