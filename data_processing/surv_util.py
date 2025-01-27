@@ -1,5 +1,8 @@
+# basic python
 import numpy as np
 import pandas as pd
+
+# scikit-survival
 from sksurv.util import Surv
 
 
@@ -14,6 +17,21 @@ def get_time_range(test_df, duration_col, event_col):
     min_event_time = event_times.min() if len(event_times) > 0 else min_time
     max_event_time = event_times.max() if len(event_times) > 0 else max_time
     return min_time, max_time, min_event_time, max_event_time
+
+
+# get times based on arbitrary time points
+def get_time_grids(min_time, max_time, min_event_time, max_event_time, n_timepoints=50):
+
+    # ibs enforces all times must be < max_time
+    # or could do np.linspace(min_time, max_time, num=n_timepoints, endpoint=False)
+    time_grid = np.linspace(min_time, max_time - 1, num=n_timepoints, endpoint=True)
+
+    # define event time grid
+    # so that when calculating auc scores, it won't get division by 0 error
+    event_time_grid = np.linspace(
+        min_event_time, max_event_time, num=n_timepoints, endpoint=True
+    )
+    return time_grid, event_time_grid
 
 
 # make df into survival form to use in scikit-survival
