@@ -189,9 +189,10 @@ def main():
     # cox_with_prob = get_avg_hourly(test_df, survival, duration_col)
     # save_parquet(df, "./data", "cox_with_prob.parquet")
 
-    # fit logistic regression
+    # fit standard logistic regression
     lr = fit_lr(X_train, y_train, duration_col, event_col)
 
+    # predict and get a single probability per row
     _, _, lr_test_df = predict_lr(lr, X_test, test_df)
     print(lr_test_df)
 
