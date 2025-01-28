@@ -1,3 +1,5 @@
+# only if it might be used multiple times
+
 # lifelines
 from lifelines.utils import concordance_index
 

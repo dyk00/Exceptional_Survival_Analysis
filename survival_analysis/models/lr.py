@@ -20,7 +20,7 @@ def fit_lr(X_train, y_train, duration_col, event_col):
     y_train = y_train[event_col].astype(int)
 
     # fit with class weights, replicating less frequent events
-    lr = LogisticRegression(random_state=42, class_weight="balanced")
+    lr = LogisticRegression(random_state=42, class_weight="balanced", n_jobs=-1)
     lr.fit(X_train, y_train)
 
     return lr
