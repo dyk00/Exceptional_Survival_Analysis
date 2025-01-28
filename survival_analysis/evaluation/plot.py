@@ -19,12 +19,15 @@ def plot_coef_ci(cph):
     plt.show()
 
 
-# plot survival curves for the first few samples
+# plot first few samples (individuals) as step function (discrete time)
 def plot_survival_functions(survival, sample_size=5):
-    survival.iloc[:, :sample_size].plot()
-    # plt.title(f"Survival Curves for First {sample_size} Samples")
+    plt.figure(figsize=(6, 4))
+    for column in survival.columns[:sample_size]:
+        plt.step(survival.index, survival[column], label=f"Individual {column}")
     plt.xlabel("Time")
     plt.ylabel("Survival Probability")
+    plt.legend()
+    plt.grid(True)
     plt.show()
 
 
@@ -41,7 +44,7 @@ def plot_time_dependent_auc(event_time_grid, auc_scores, mean_auc_score):
         color="red",
         label=f"Mean AUC = {mean_auc_score:.3f}",
     )
-    plt.xlabel("Hours Since Admission")
+    plt.xlabel("Time Since Admission")
     plt.ylabel("Time-dependent AUC")
 
     # plt.title("AUC over Time")
@@ -186,5 +189,6 @@ def plot_survival_cols(cph, train_df, cols, bins_count):
     )
 
     # plt.title(f"Partial Effects of {', '.join(cols)} on Survival Outcome")
+    plt.grid(True)
     plt.tight_layout()
     plt.show()
