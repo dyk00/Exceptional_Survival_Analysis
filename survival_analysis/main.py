@@ -49,6 +49,12 @@ from survival_analysis.models.lr import (
 # gradient boosting
 from survival_analysis.models.gb import fit_gb, fit_cgb, predict_hazard_sksurv
 
+# random survival forest
+from survival_analysis.models.rsf import fit_rsf, fit_ersf
+
+# aft
+from survival_analysis.models.aft import fit_weibull_aft
+
 # plot
 from survival_analysis.evaluation.plot import (
     plot_coef_ci,
@@ -280,6 +286,59 @@ def main():
     )
 
     # ------------------- Random Survival Forest ------------------- #
+
+    # fit random survival forest
+    rsf = fit_rsf(X_train, y_train_surv)
+
+    # fit extremely random survival forest
+    ersf = fit_ersf(X_train, y_train_surv)
+
+    # predict hazard (risk) scores
+    hazard_sksurv = predict_hazard_sksurv(rsf, X_test)
+
+    # get a list of StepFunctions (n_samples,)
+    step_funcs = rsf.predict_survival_function(X_test, return_array=False)
+
+    # map each StepFunction on time_grid
+    # shape (n_samples, n_timepoints)
+    surv_probs = np.array([sf(time_grid) for sf in step_funcs])
+
+    # shape = (n_timepoints,  n_samples)
+    survival = pd.DataFrame(data=surv_probs.T, index=time_grid)
+    plot_survival_functions(survival, sample_size=5)
+
+    # get c-index
+    c_index = get_c_index_sksurv(rsf, X_test, y_test_surv)
+    print("RSF C-index:", c_index)
+
+    # get ipcw c-index
+    c_index_ipcw = get_c_index_ipcw(y_train_surv, y_test_surv, hazard_sksurv)
+    print("RSF IPCW c-index:", c_index_ipcw)
+
+    # get IBS
+    ibs = integrated_brier_score(y_train_surv, y_test_surv, surv_probs, time_grid)
+    print("Integrated Brier Score:", ibs)
+
+    # plot time-dependent AUC
+    auc_scores, mean_auc_score = cumulative_dynamic_auc(
+        y_train_surv, y_test_surv, surv_probs, event_time_grid
+    )
+    print("Time-Dependent AUC scores:", auc_scores)
+    print("Mean AUC score:", mean_auc_score)
+    plot_time_dependent_auc(event_time_grid, auc_scores, mean_auc_score)
+
+    # plot time dependent roc curve
+    eval_times = [100, 300, 500, 700, 900]
+    plot_time_dependent_roc(
+        eval_times=eval_times,
+        survival=survival,
+        time_grid=time_grid,
+        test_df=test_df,
+        duration_col="time_to_event",
+        event_col="is_first",
+    )
+
+    # ------------------- AFT ------------------- #
 
 
 if __name__ == "__main__":
