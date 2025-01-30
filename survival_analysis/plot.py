@@ -1,6 +1,8 @@
 # basic python
 import matplotlib.pyplot as plt
+import seaborn as sns
 import numpy as np
+import pandas as pd
 from itertools import product
 
 # emm
@@ -13,15 +15,16 @@ from lifelines import KaplanMeierFitter
 from sklearn.metrics import roc_curve, auc
 
 # plot coefficients with CI
-def plot_coef_ci(cph):
+def plot_coef_ci(model):
     plt.figure(figsize=(6, 4))
-    cph.plot()
+    model.plot()
+    plt.tight_layout()
     plt.show()
 
 
 # plot first few samples (individuals) as step function (discrete time)
 def plot_survival_functions(survival, sample_size=5):
-    plt.figure(figsize=(6, 4))
+    plt.figure(figsize=(5, 5))
     for column in survival.columns[:sample_size]:
         plt.step(survival.index, survival[column], label=f"Individual {column}")
     plt.xlabel("Time")
@@ -97,7 +100,7 @@ def plot_time_dependent_roc(
 
 
 def plot_km(train_df, duration_col, event_col, strata=None):
-    kmf = KaplanMeierFitter()
+    km = KaplanMeierFitter()
 
     plt.figure(figsize=(6, 4))
 
@@ -106,21 +109,21 @@ def plot_km(train_df, duration_col, event_col, strata=None):
         groups = train_df[strata].unique()
         for group in groups:
             mask = train_df[strata] == group
-            kmf.fit(
+            km.fit(
                 train_df.loc[mask, duration_col],
                 event_observed=train_df.loc[mask, event_col],
                 label=str(group),
             )
-            kmf.plot_survival_function(ci_show=True)
+            km.plot_survival_function(ci_show=True)
         # plt.title(f"Kaplan-Meier Survival Curves by {strata}")
     else:
         # single curve
-        kmf.fit(
+        km.fit(
             train_df[duration_col],
             event_observed=train_df[event_col],
             label="Kaplan-Meier Estimate",
         )
-        kmf.plot_survival_function(ci_show=True)
+        km.plot_survival_function(ci_show=True)
         # plt.title("Kaplan-Meier Survival Curve")
 
     plt.xlabel("Hours")
@@ -130,8 +133,9 @@ def plot_km(train_df, duration_col, event_col, strata=None):
     plt.show()
 
 
+# specific to lifelines models
 def plot_survival_cols(cph, train_df, cols, bins_count):
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(6, 4))
 
     # get the discretized column bins
     col_bins = discretize_numeric_cols(train_df, cols, bins_count=bins_count)
@@ -190,5 +194,17 @@ def plot_survival_cols(cph, train_df, cols, bins_count):
 
     # plt.title(f"Partial Effects of {', '.join(cols)} on Survival Outcome")
     plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+
+# plot expected survival times for aft models
+def plot_expected_survival(expected_survival, model):
+    plt.figure(figsize=(6, 6))
+    data = pd.DataFrame({"Expected Survival Time": expected_survival.values})
+    sns.boxplot(y="Expected Survival Time", data=data, color="skyblue")
+    plt.title(f"Boxplot of Expected Survival Times ({model})")
+    plt.ylabel("Expected Survival Time")
+    plt.xticks([], [])
     plt.tight_layout()
     plt.show()
