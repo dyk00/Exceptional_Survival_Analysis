@@ -1,6 +1,8 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+from data_processing.data_io import save_parquet
+
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
@@ -38,8 +40,10 @@ def predict_lr(lr, X_test, test_df):
     # y_pred_prob = lr.predict_proba(X_test)[:, 1]
 
     # add a single probability
-    test_df["lr_probability"] = y_pred_prob
-    lr_test_df = test_df
+    model_with_prob = test_df.copy()
+    model_with_prob["lr_probability"] = y_pred_prob
+    save_parquet(model_with_prob, "./data_sa", "lr_with_prob.parquet")
+    lr_test_df = model_with_prob
 
     return y_pred, y_pred_prob, lr_test_df
 

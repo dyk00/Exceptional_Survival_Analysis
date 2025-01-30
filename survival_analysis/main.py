@@ -1,4 +1,5 @@
-from data_processing.data_io import read_parquet, save_parquet
+# data processing
+from data_processing.data_io import read_parquet
 
 # survival utilities
 from data_processing.surv_util import (
@@ -7,7 +8,6 @@ from data_processing.surv_util import (
     get_time_range,
     get_time_grids,
     make_surv,
-    get_avg_hourly,
 )
 
 # kaplan-meier
@@ -78,18 +78,18 @@ def main():
 
     # ------------------- Lifelines ------------------- #
 
-    # evaluate_lifelines(
-    #     model_names=["cox_lf", "weibull", "ln", "ll"],
-    #     train_df=train_df,
-    #     test_df=test_df,
-    #     X_test=X_test,
-    #     y_train_surv=y_train_surv,
-    #     y_test_surv=y_test_surv,
-    #     duration_col=duration_col,
-    #     event_col=event_col,
-    #     time_grid=time_grid,
-    #     event_time_grid=event_time_grid,
-    # )
+    evaluate_lifelines(
+        model_names=["cox_lf", "weibull", "ln", "ll"],
+        train_df=train_df,
+        test_df=test_df,
+        X_test=X_test,
+        y_train_surv=y_train_surv,
+        y_test_surv=y_test_surv,
+        duration_col=duration_col,
+        event_col=event_col,
+        time_grid=time_grid,
+        event_time_grid=event_time_grid,
+    )
 
     # ------------------- Scikit-Survival ------------------- #
 

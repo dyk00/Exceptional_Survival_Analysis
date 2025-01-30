@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 
+from data_processing.data_io import save_parquet
+from data_processing.surv_util import get_avg_hourly
+
 from survival_analysis.fit import (
     fit_cox_sk,
     fit_coxnet_sk,
@@ -71,7 +74,11 @@ def evaluate_sksurv(
         surv_probs = np.array([sf(time_grid) for sf in step_funcs])
 
         # shape = (n_timepoints,  n_samples)
-        survival = pd.DataFrame(data=surv_probs.T, index=time_grid)
+        survival = pd.DataFrame(
+            data=surv_probs.T,
+            index=time_grid,
+            columns=X_test.index,
+        )
         plot_survival_functions(survival, sample_size=5)
 
         # get c-index
@@ -115,3 +122,8 @@ def evaluate_sksurv(
         )
 
         # plot partial effects not supported for scikit-survival
+
+        # to run emm, get new test df after fitting a model
+        model_with_prob = test_df.copy()
+        model_with_prob = get_avg_hourly(model_with_prob, survival, duration_col)
+        save_parquet(model_with_prob, "./data_sa", f"{model_name}_with_prob.parquet")

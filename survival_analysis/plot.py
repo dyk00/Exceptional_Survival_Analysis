@@ -200,7 +200,7 @@ def plot_survival_cols(cph, train_df, cols, bins_count):
 
 # plot expected survival times for aft models
 def plot_expected_survival(expected_survival, model):
-    plt.figure(figsize=(6, 6))
+    plt.figure(figsize=(5, 4))
     data = pd.DataFrame({"Expected Survival Time": expected_survival.values})
     sns.boxplot(y="Expected Survival Time", data=data, color="skyblue")
     plt.title(f"Boxplot of Expected Survival Times ({model})")

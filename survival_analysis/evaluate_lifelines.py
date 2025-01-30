@@ -1,5 +1,7 @@
 import numpy as np
 
+from data_processing.data_io import save_parquet
+from data_processing.surv_util import get_avg_hourly
 from survival_analysis.fit import fit_cox_lf, fit_weibull, fit_ln, fit_ll
 from survival_analysis.plot import *
 
@@ -155,3 +157,8 @@ def evaluate_lifelines(
         if model_name in ["weibull", "ln", "ll"]:
             expected_survival = model.predict_expectation(X_test)
             plot_expected_survival(expected_survival, model_name)
+
+        # to run emm, get new test df after fitting a model
+        model_with_prob = test_df.copy()
+        model_with_prob = get_avg_hourly(model_with_prob, survival, duration_col)
+        save_parquet(model_with_prob, "./data_sa", f"{model_name}_with_prob.parquet")
