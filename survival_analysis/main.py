@@ -27,13 +27,6 @@ from survival_analysis.evaluate_sksurv_kfold import *
 
 
 def main():
-    # load and preprocess data
-    df, _ = read_parquet("./data", "example_data_without_prob.parquet")
-    df = df.drop(columns=["datetime"])
-
-    # to remove the p_id and admission_id
-    df = index_data(df)
-    duration_col, event_col = "time_to_event", "is_first"
 
     # ------------------- Define and Get variables ------------------- #
 
@@ -125,27 +118,8 @@ def main():
     )
 
     # ------------------- K-Fold Validation for Lifelines ------------------- #
-    # model_names = ["cox_lf", "weibull", "ln", "ll"]
-    # kfold_results = evaluate_lifelines_kfold(
-    #     model_names=model_names,
-    #     df=df,
-    #     X=X,
-    #     y=y_surv,
-    #     duration_col=duration_col,
-    #     event_col=event_col,
-    #     n_splits=5,
-    #     random_state=42,
-    # )
-
-    # print("KFold Results:")
-    # for model, metrics in kfold_results.items():
-    #     print(f"Model: {model}")
-    #     for metric_name, metric_val in metrics.items():
-    #         print(f"{metric_name}: {metric_val}")
-
-    # ------------------- K-Fold Validation for Scikit-Survival ------------------- #
-    model_names = ["cox_sk", "coxnet_sk", "gb", "gcb", "rsf", "ersf"]
-    kfold_results = evaluate_sksurv_kfold(
+    model_names = ["cox_lf", "weibull", "ln", "ll"]
+    kfold_results1 = evaluate_lifelines_kfold(
         model_names=model_names,
         df=df,
         X=X,
@@ -157,7 +131,26 @@ def main():
     )
 
     print("KFold Results:")
-    for model, metrics in kfold_results.items():
+    for model, metrics in kfold_results1.items():
+        print(f"Model: {model}")
+        for metric_name, metric_val in metrics.items():
+            print(f"{metric_name}: {metric_val}")
+
+    # ------------------- K-Fold Validation for Scikit-Survival ------------------- #
+    model_names = ["cox_sk", "coxnet_sk", "gb", "gcb", "rsf", "ersf"]
+    kfold_results2 = evaluate_sksurv_kfold(
+        model_names=model_names,
+        df=df,
+        X=X,
+        y=y_surv,
+        duration_col=duration_col,
+        event_col=event_col,
+        n_splits=5,
+        random_state=42,
+    )
+
+    print("KFold Results:")
+    for model, metrics in kfold_results2.items():
         print(f"Model: {model}")
         for metric_name, metric_val in metrics.items():
             print(f"{metric_name}: {metric_val}")

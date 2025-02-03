@@ -77,18 +77,18 @@ def evaluate_lifelines(
         # or sample_size=len(survival)
         plot_survival_functions(survival, sample_size=5)
 
-        # k fold cross validation using c-index
-        scores = k_fold_cross_validation(
-            model,
-            train_df,
-            duration_col,
-            event_col,
-            k=5,
-            scoring_method="concordance_index",
-            seed=42,
-        )
-        print("K-Fold Score:", scores)
-        print("K-Fold Mean Score:", np.mean(scores))
+        # # k fold cross validation using c-index
+        # scores = k_fold_cross_validation(
+        #     model,
+        #     train_df,
+        #     duration_col,
+        #     event_col,
+        #     k=5,
+        #     scoring_method="concordance_index",
+        #     seed=42,
+        # )
+        # print("K-Fold Score:", scores)
+        # print("K-Fold Mean Score:", np.mean(scores))
 
         # c-index for training data
         print("Concordance Index on Training Set:", model.concordance_index_)

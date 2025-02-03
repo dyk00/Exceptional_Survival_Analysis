@@ -52,7 +52,7 @@ def evaluate_sksurv_kfold(
         c_index_censored = []
         c_index_ipcw = []
         ibs = []
-        auc_mean_list = []
+        auc_mean = []
 
         # run the kfold and get results per model
         for fold_idx, (train_idx, test_idx) in enumerate(skf.split(X, df[event_col])):
@@ -126,10 +126,10 @@ def evaluate_sksurv_kfold(
             ibs.append(ibs_val)
 
             # time-dependent AUC using event time grid fold
-            auc_scores, auc_mean = cumulative_dynamic_auc(
+            auc_scores, auc_mean_val = cumulative_dynamic_auc(
                 y_train_fold, y_test_fold, surv_probs, event_time_grid_fold
             )
-            auc_mean_list.append(auc_mean)
+            auc_mean.append(auc_mean_val)
 
             # print(f"Kfold for model: {model_name}")
             # print(
@@ -141,10 +141,10 @@ def evaluate_sksurv_kfold(
 
         results[model_name] = {
             "Mean Concordance Index": np.mean(c_index),
-            # "Concordance Index": np.mean(c_index_censored),
+            # "Mean Concordance Index": np.mean(c_index_censored),
             "Mean IPCW C-index": np.mean(c_index_ipcw),
             "Mean Integrated Brier Score": np.mean(ibs),
-            "Mean Time-Dependent AUC": np.mean(auc_mean_list),
+            "Mean Time-Dependent AUC": np.mean(auc_mean),
         }
 
     return results
