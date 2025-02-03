@@ -18,7 +18,10 @@ def split_data(df, duration_col, event_col, test_size=0.2, random_state=42):
     df_copy = df.copy()
 
     train_df, test_df = train_test_split(
-        df_copy, test_size=test_size, random_state=random_state
+        df_copy,
+        test_size=test_size,
+        random_state=random_state,
+        stratify=df_copy[event_col],
     )
 
     X = df_copy.drop([event_col, duration_col], axis=1)
@@ -54,7 +57,7 @@ def get_time_grids(min_time, max_time, min_event_time, max_event_time, n_timepoi
     # define event time grid
     # so that when calculating auc scores, it won't get division by 0 error
     event_time_grid = np.linspace(
-        min_event_time, max_event_time, num=n_timepoints, endpoint=True
+        min_event_time, max_event_time - 1, num=n_timepoints, endpoint=True
     )
     return time_grid, event_time_grid
 
