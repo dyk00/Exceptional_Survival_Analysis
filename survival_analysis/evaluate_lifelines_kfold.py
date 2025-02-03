@@ -137,8 +137,9 @@ def evaluate_lifelines_kfold(
             ibs.append(ibs_val)
 
             # get time dependent auc
+            risk_probs = 1 - surv_probs
             auc_scores, mean_auc_score = cumulative_dynamic_auc(
-                y_train_fold, y_test_fold, surv_probs, event_time_grid_fold
+                y_train_fold, y_test_fold, risk_probs, event_time_grid_fold
             )
             auc_mean.append(mean_auc_score)
 

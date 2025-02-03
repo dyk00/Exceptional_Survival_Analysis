@@ -131,8 +131,9 @@ def evaluate_lifelines(
         print("Integrated Brier Score:", ibs)
 
         # get time dependent auc
+        risk_probs = 1 - surv_probs
         auc_scores, mean_auc_score = cumulative_dynamic_auc(
-            y_train_surv, y_test_surv, surv_probs, event_time_grid
+            y_train_surv, y_test_surv, risk_probs, event_time_grid
         )
         print("Time-Dependent AUC scores:", auc_scores)
         print("Mean AUC score:", mean_auc_score)

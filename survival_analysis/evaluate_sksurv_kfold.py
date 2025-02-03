@@ -126,8 +126,9 @@ def evaluate_sksurv_kfold(
             ibs.append(ibs_val)
 
             # time-dependent AUC using event time grid fold
+            risk_probs = 1 - surv_probs
             auc_scores, auc_mean_val = cumulative_dynamic_auc(
-                y_train_fold, y_test_fold, surv_probs, event_time_grid_fold
+                y_train_fold, y_test_fold, risk_probs, event_time_grid_fold
             )
             auc_mean.append(auc_mean_val)
 
