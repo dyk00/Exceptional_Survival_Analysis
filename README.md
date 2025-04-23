@@ -24,7 +24,7 @@ This repository contains the code and supplementary materials for my graduation 
 
 1. **Clone** the repo  
    ```bash
-   git clone https://github.com/dyk00/SURVIVAL_EMM.git
+   git clone https://github.com/dyk00/Exceptional_Survival_Analysis.git
    ```
 2. **Install** dependencies  
    ```bash
