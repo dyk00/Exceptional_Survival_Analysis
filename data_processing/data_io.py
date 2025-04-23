@@ -20,4 +20,4 @@ def save_parquet(df, folder, name):
 # df, cols = read_parquet(folder, name)
 # print(df.head())
 # print(df.dtypes)
-# save_parquet(df, "./data", "new_example_data.parquet")
+# save_parquet(df, "./data", "new_example_data")

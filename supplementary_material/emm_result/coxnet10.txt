@@ -1,0 +1,351 @@
+### These 10 subgroups were generated without being based on any specific variables ###
+Description: count_ic_6hr = 1 & leeftijd <= 47 (Size = 361), Quality: 0.1117
+Description: count_ic_6hr != 0 & leeftijd <= 47 (Size = 361), Quality: 0.1117
+Description: leeftijd <= 47 & m_month = 3 (Size = 287), Quality: 0.1205
+Description: leeftijd <= 47 & specialisme_code = 26 (Size = 287), Quality: 0.1205
+Description: m_year = 2019 & specialisme_code = 26 (Size = 287), Quality: 0.1205
+Description: leeftijd <= 57 & m_month = 3 (Size = 287), Quality: 0.1205
+Description: specialisme_code = 26 & spoed = True (Size = 290), Quality: 0.1296
+Description: kreatinine >= 200.0 & m_month = 3 (Size = 277), Quality: 0.1586
+Description: m_year != 2021 & specialisme_code = 26 (Size = 316), Quality: 0.2012
+Description: kreatinine >= 171.0 & m_year = 2019 (Size = 315), Quality: 0.2598
+
+### These 10 subgroups were generated based on the condition "geslacht = False" ###
+Description: kreatinine >= 294.0 & ureum <= 22.0 (Size = 280), Quality: 0.1676
+Description: kreatinine >= 294.0 & m_year != 2021 (Size = 288), Quality: 0.1907
+Description: count_acute_ic = 0 & kreatinine >= 294.0 (Size = 288), Quality: 0.1907
+Description: count_ic_6hr != 2 & kreatinine >= 294.0 (Size = 288), Quality: 0.1907
+Description: kreatinine >= 294.0 & specialisme_code != 9 (Size = 288), Quality: 0.1907
+Description: kreatinine >= 294.0 & leeftijd <= 77 (Size = 288), Quality: 0.1907
+Description: geslacht = False & specialisme_code = 26 (Size = 398), Quality: 0.3652
+Description: first_event = 4 & geslacht = False (Size = 4058), Quality: 0.4272
+Description: first_event = 4 & hoofdverrichting_code = 4 (Size = 2029), Quality: 0.4272
+Description: hoofdverrichting_code = 4 & m_day = 5 (Size = 275), Quality: 0.4293
+
+### These 10 subgroups were generated based on the condition "geslacht = True" ###
+Description: count_ic_6hr = 1 & geslacht = True (Size = 374), Quality: 0.5471
+Description: first_event = 3 & geslacht = True (Size = 300), Quality: 0.6630
+Description: geslacht = True & hoofdverrichting_code = 23 (Size = 303), Quality: 0.6663
+Description: geslacht = True & specialisme_code = 26 (Size = 303), Quality: 0.6663
+Description: geslacht = True & m_year = 2021 (Size = 347), Quality: 0.7084
+Description: hoofdverrichting_code = 6 & m_month != 12 (Size = 280), Quality: 0.7533
+Description: hoofdverrichting_code = 6 & m_year != 2018 (Size = 302), Quality: 0.7711
+Description: hoofdverrichting_code = 6 & nibp_meet_waarde1 <= 134.0 (Size = 374), Quality: 0.8142
+Description: hoofdverrichting_code = 6 & nibp_meet_waarde2 <= 74.0 (Size = 357), Quality: 0.8157
+Description: hoofdverrichting_code = 6 & nibp_meet_waarde3 <= 97.0 (Size = 397), Quality: 0.8247
+
+### These 10 subgroups were generated based on the condition "spoed = False" ###
+Description: count_ic_6hr = 1 & spoed = False (Size = 357), Quality: 0.6673
+Description: m_month = 1 & spoed = False (Size = 365), Quality: 0.7229
+Description: hoofdverrichting_code = 23 & spoed = False (Size = 385), Quality: 0.7368
+Description: specialisme_code = 26 & spoed = False (Size = 411), Quality: 0.7535
+Description: care_order = 1 & spoed = False (Size = 657), Quality: 0.8185
+Description: care_order != 0 & spoed = False (Size = 744), Quality: 0.8384
+Description: leeftijd <= 60 & spoed = False (Size = 911), Quality: 0.8679
+Description: leeftijd <= 73 & spoed = False (Size = 986), Quality: 0.8779
+Description: geslacht = True & spoed = False (Size = 863), Quality: 0.8824
+Description: leeftijd <= 80 & spoed = False (Size = 1279), Quality: 0.9058
+
+### These 10 subgroups were generated based on the condition "spoed = True" ###
+Description: specialisme_code = 26 & spoed = True (Size = 290), Quality: 0.1296
+Description: leeftijd <= 47 & spoed = True (Size = 415), Quality: 0.2270
+Description: kreatinine >= 212.0 & spoed = True (Size = 306), Quality: 0.2379
+Description: m_month = 3 & spoed = True (Size = 458), Quality: 0.3616
+Description: spoed = True & ureum >= 16.0 (Size = 298), Quality: 0.4099
+Description: first_event = 4 & spoed = True (Size = 4131), Quality: 0.4210
+Description: resp_meet_waarde1 >= 30.0 & spoed = True (Size = 283), Quality: 0.4326
+Description: hr_meet_waarde1 <= 60.0 & spoed = True (Size = 1756), Quality: 0.4340
+Description: m_year = 2021 & spoed = True (Size = 4175), Quality: 0.4344
+Description: natrium <= 132.0 & spoed = True (Size = 336), Quality: 0.4354
+
+### These 10 subgroups were generated based on the condition "specialisme_code = 9" ###
+Description: count_ic_6hr = 2 & m_day = 4 (Size = 1195), Quality: 0.9737
+Description: count_ic_6hr = 2 & spo2_meet_waarde1 <= 92.0 (Size = 547), Quality: 0.9737
+Description: specialisme_code = 9 & spo2_meet_waarde1 <= 92.0 (Size = 547), Quality: 0.9737
+Description: count_ic_6hr = 2 & m_hour = 14 (Size = 1165), Quality: 0.9737
+Description: count_ic_6hr = 2 & m_day = 20 (Size = 1220), Quality: 0.9737
+Description: count_ic_6hr = 2 & m_day = 19 (Size = 1104), Quality: 0.9737
+Description: count_ic_6hr = 2 & m_day = 2 (Size = 1105), Quality: 0.9737
+Description: count_ic_6hr = 2 & spo2_meet_waarde1 <= 95.0 (Size = 5237), Quality: 0.9737
+Description: m_day = 20 & specialisme_code = 9 (Size = 1220), Quality: 0.9737
+Description: kreatinine >= 328.0 & specialisme_code = 9 (Size = 4348), Quality: 0.9737
+
+### These 10 subgroups were generated based on the condition "specialisme_code = 8" ###
+Description: m_month != 11 & specialisme_code = 8 (Size = 367), Quality: 0.9511
+Description: nibp_meet_waarde2 >= 62.0 & specialisme_code = 8 (Size = 358), Quality: 0.9525
+Description: nibp_meet_waarde3 >= 77.0 & specialisme_code = 8 (Size = 333), Quality: 0.9536
+Description: natrium >= 137.0 & specialisme_code = 8 (Size = 336), Quality: 0.9549
+Description: kreatinine >= 51.0 & specialisme_code = 8 (Size = 416), Quality: 0.9567
+Description: hr_meet_waarde1 >= 83.0 & specialisme_code = 8 (Size = 411), Quality: 0.9577
+Description: nibp_meet_waarde3 >= 69.0 & specialisme_code = 8 (Size = 411), Quality: 0.9577
+Description: specialisme_code = 8 & spo2_meet_waarde1 >= 94.0 (Size = 403), Quality: 0.9584
+Description: m_day != 6 & specialisme_code = 8 (Size = 443), Quality: 0.9593
+Description: natrium >= 135.0 & specialisme_code = 8 (Size = 443), Quality: 0.9593
+
+### These 10 subgroups were generated based on the condition "specialisme_code = 7" ###
+Description: hoofdverrichting_code = 6 & m_month != 12 (Size = 280), Quality: 0.7533
+Description: hoofdverrichting_code = 6 & m_year != 2018 (Size = 302), Quality: 0.7711
+Description: hoofdverrichting_code = 6 & nibp_meet_waarde1 <= 134.0 (Size = 374), Quality: 0.8142
+Description: hoofdverrichting_code = 6 & nibp_meet_waarde2 <= 74.0 (Size = 357), Quality: 0.8157
+Description: hoofdverrichting_code = 6 & nibp_meet_waarde3 <= 97.0 (Size = 397), Quality: 0.8247
+Description: hoofdverrichting_code = 6 & temp_meet_waarde1 <= 37.70000076293945 (Size = 325), Quality: 0.8292
+Description: hoofdverrichting_code = 6 & spo2_meet_waarde1 >= 97.0 (Size = 363), Quality: 0.8312
+Description: m_month != 12 & specialisme_code = 7 (Size = 425), Quality: 0.8360
+Description: natrium <= 138.0 & specialisme_code = 7 (Size = 401), Quality: 0.8398
+Description: hoofdverrichting_code = 6 & ureum <= 4.400000095367432 (Size = 437), Quality: 0.8404
+
+### These 10 subgroups were generated based on the condition "specialisme_code = 3" ###
+Description: m_day = 7 & specialisme_code = 3 (Size = 291), Quality: 0.4272
+Description: resp_meet_waarde1 >= 30.0 & specialisme_code = 3 (Size = 278), Quality: 0.4272
+Description: hoofdverrichting_code = 3 & specialisme_code = 3 (Size = 1020), Quality: 0.4272
+Description: first_event = 4 & specialisme_code = 3 (Size = 4057), Quality: 0.4272
+Description: first_event = 4 & hoofdverrichting_code = 4 (Size = 2029), Quality: 0.4272
+Description: m_day = 5 & specialisme_code = 3 (Size = 565), Quality: 0.4282
+Description: specialisme_code = 3 & ureum >= 8.100000381469727 (Size = 632), Quality: 0.4283
+Description: m_day = 6 & specialisme_code = 3 (Size = 512), Quality: 0.4283
+Description: resp_meet_waarde1 >= 23.0 & specialisme_code = 3 (Size = 594), Quality: 0.4288
+Description: specialisme_code = 3 & ureum >= 7.0 (Size = 1070), Quality: 0.4289
+
+### These 10 subgroups were generated based on the condition "specialisme_code = 2" ###
+Description: m_year = 2020 & specialisme_code = 2 (Size = 316), Quality: 0.7330
+Description: first_event != 0 & specialisme_code = 2 (Size = 485), Quality: 0.7435
+Description: count_ic_6hr = 1 & specialisme_code = 2 (Size = 484), Quality: 0.7446
+Description: first_event = 3 & specialisme_code = 2 (Size = 484), Quality: 0.7446
+Description: care_order = 1 & specialisme_code = 2 (Size = 338), Quality: 0.7525
+Description: specialisme_code = 2 & spoed = True (Size = 503), Quality: 0.7541
+Description: leeftijd <= 71 & specialisme_code = 2 (Size = 544), Quality: 0.7712
+Description: m_year != 2022 & specialisme_code = 2 (Size = 544), Quality: 0.7713
+Description: care_order != 0 & specialisme_code = 2 (Size = 549), Quality: 0.7733
+Description: geslacht = False & specialisme_code = 2 (Size = 560), Quality: 0.7778
+
+### No subgroups satisfy the constraints based on the condition "specialisme_code = 1" ###
+
+### These 10 subgroups were generated based on the condition "specialisme_code = 26" ###
+Description: m_year = 2019 & specialisme_code = 26 (Size = 287), Quality: 0.1205
+Description: leeftijd <= 47 & specialisme_code = 26 (Size = 287), Quality: 0.1205
+Description: specialisme_code = 26 & spoed = True (Size = 290), Quality: 0.1296
+Description: m_year != 2021 & specialisme_code = 26 (Size = 316), Quality: 0.2012
+Description: kreatinine >= 157.0 & specialisme_code = 26 (Size = 308), Quality: 0.2430
+Description: natrium <= 139.0 & specialisme_code = 26 (Size = 369), Quality: 0.2846
+Description: m_month = 3 & specialisme_code = 26 (Size = 372), Quality: 0.3209
+Description: m_month != 1 & specialisme_code = 26 (Size = 381), Quality: 0.3369
+Description: kreatinine >= 138.0 & specialisme_code = 26 (Size = 355), Quality: 0.3430
+Description: geslacht = False & specialisme_code = 26 (Size = 398), Quality: 0.3652
+
+### No subgroups satisfy the constraints based on the condition "specialisme_code = 5" ###
+
+### No subgroups satisfy the constraints based on the condition "specialisme_code = 13" ###
+
+### No subgroups satisfy the constraints based on the condition "specialisme_code = 14" ###
+
+### No subgroups satisfy the constraints based on the condition "specialisme_code = 16" ###
+
+### No subgroups satisfy the constraints based on the condition "specialisme_code = 19" ###
+
+### No subgroups satisfy the constraints based on the condition "specialisme_code = 12" ###
+
+### These 10 subgroups were generated based on the condition "hoofdverrichting_code = 3" ###
+Description: first_event = 4 & hoofdverrichting_code = 3 (Size = 1021), Quality: 0.4271
+Description: hoofdverrichting_code = 3 & specialisme_code = 3 (Size = 1020), Quality: 0.4272
+Description: hoofdverrichting_code = 3 & m_month = 9 (Size = 1271), Quality: 0.4886
+Description: count_ic_6hr = 1 & hoofdverrichting_code = 3 (Size = 1666), Quality: 0.5091
+Description: hoofdverrichting_code = 3 & m_month = 3 (Size = 276), Quality: 0.5205
+Description: care_order = 1 & hoofdverrichting_code = 3 (Size = 2046), Quality: 0.6186
+Description: hoofdverrichting_code = 3 & spoed = True (Size = 2158), Quality: 0.6281
+Description: hoofdverrichting_code = 3 & leeftijd <= 71 (Size = 2240), Quality: 0.6335
+Description: care_order != 0 & hoofdverrichting_code = 3 (Size = 2257), Quality: 0.6362
+Description: hoofdverrichting_code = 3 & hr_meet_waarde1 <= 61.0 (Size = 810), Quality: 0.6606
+
+### These 10 subgroups were generated based on the condition "hoofdverrichting_code = 6" ###
+Description: hoofdverrichting_code = 6 & m_month != 12 (Size = 280), Quality: 0.7533
+Description: hoofdverrichting_code = 6 & m_year != 2018 (Size = 302), Quality: 0.7711
+Description: hoofdverrichting_code = 6 & nibp_meet_waarde1 <= 134.0 (Size = 374), Quality: 0.8142
+Description: hoofdverrichting_code = 6 & nibp_meet_waarde2 <= 74.0 (Size = 357), Quality: 0.8157
+Description: hoofdverrichting_code = 6 & nibp_meet_waarde3 <= 97.0 (Size = 397), Quality: 0.8247
+Description: hoofdverrichting_code = 6 & temp_meet_waarde1 <= 37.70000076293945 (Size = 325), Quality: 0.8292
+Description: hoofdverrichting_code = 6 & spo2_meet_waarde1 >= 97.0 (Size = 363), Quality: 0.8312
+Description: hoofdverrichting_code = 6 & ureum <= 4.400000095367432 (Size = 437), Quality: 0.8404
+Description: hoofdverrichting_code = 6 & m_year != 2019 (Size = 505), Quality: 0.8612
+Description: hoofdverrichting_code = 6 & nibp_meet_waarde2 <= 83.0 (Size = 505), Quality: 0.8612
+
+### These 10 subgroups were generated based on the condition "hoofdverrichting_code = 2" ###
+Description: first_event = 4 & hoofdverrichting_code = 2 (Size = 1008), Quality: 0.4272
+Description: hoofdverrichting_code = 2 & m_month = 9 (Size = 1010), Quality: 0.4283
+Description: count_acute_ic = 1 & hoofdverrichting_code = 2 (Size = 1012), Quality: 0.4295
+Description: hoofdverrichting_code = 2 & specialisme_code = 3 (Size = 1012), Quality: 0.4295
+Description: hoofdverrichting_code = 2 & spo2_meet_waarde1 <= 94.0 (Size = 319), Quality: 0.4379
+Description: hoofdverrichting_code = 2 & prioriteit_code = 1 (Size = 1075), Quality: 0.4408
+Description: hoofdverrichting_code = 2 & m_year = 2021 (Size = 1036), Quality: 0.4427
+Description: count_ic_6hr = 1 & hoofdverrichting_code = 2 (Size = 1124), Quality: 0.4455
+Description: first_event != 0 & hoofdverrichting_code = 2 (Size = 1130), Quality: 0.4483
+Description: hoofdverrichting_code = 2 & hr_meet_waarde1 <= 67.0 (Size = 584), Quality: 0.4486
+
+### These 10 subgroups were generated based on the condition "hoofdverrichting_code = -1" ###
+Description: leeftijd <= 57 & prioriteit_code = -1 (Size = 439), Quality: 0.9991
+Description: hoofdverrichting_code = -1 & leeftijd <= 57 (Size = 439), Quality: 0.9991
+Description: prioriteit_code = -1 & specialisme_code = 8 (Size = 420), Quality: 0.9991
+Description: hoofdverrichting_code = -1 & specialisme_code = 8 (Size = 420), Quality: 0.9991
+Description: leeftijd <= 73 & prioriteit_code = -1 (Size = 525), Quality: 0.9991
+Description: hoofdverrichting_code = -1 & leeftijd <= 73 (Size = 525), Quality: 0.9991
+Description: m_month = 12 & prioriteit_code = -1 (Size = 289), Quality: 0.9991
+Description: hoofdverrichting_code = -1 & m_month = 12 (Size = 289), Quality: 0.9991
+Description: prioriteit_code = -1 & ureum >= 6.300000190734863 (Size = 518), Quality: 0.9992
+Description: hoofdverrichting_code = -1 & ureum >= 6.300000190734863 (Size = 518), Quality: 0.9992
+
+### These 10 subgroups were generated based on the condition "hoofdverrichting_code = 4" ###
+Description: first_event = 4 & hoofdverrichting_code = 4 (Size = 2029), Quality: 0.4272
+Description: hoofdverrichting_code = 4 & m_day = 5 (Size = 275), Quality: 0.4293
+Description: hoofdverrichting_code = 4 & ureum >= 8.100000381469727 (Size = 306), Quality: 0.4294
+Description: hoofdverrichting_code = 4 & resp_meet_waarde1 >= 23.0 (Size = 313), Quality: 0.4302
+Description: hoofdverrichting_code = 4 & ureum >= 7.0 (Size = 527), Quality: 0.4305
+Description: hoofdverrichting_code = 4 & hr_meet_waarde1 <= 54.0 (Size = 479), Quality: 0.4306
+Description: hoofdverrichting_code = 4 & prioriteit_code = 0 (Size = 2043), Quality: 0.4311
+Description: count_acute_ic = 1 & hoofdverrichting_code = 4 (Size = 2043), Quality: 0.4311
+Description: hoofdverrichting_code = 4 & m_hour = 8 (Size = 319), Quality: 0.4315
+Description: hoofdverrichting_code = 4 & m_month = 9 (Size = 2115), Quality: 0.4327
+
+### These 10 subgroups were generated based on the condition "hoofdverrichting_code = 23" ###
+Description: count_ic_6hr = 1 & hoofdverrichting_code = 23 (Size = 386), Quality: 0.5421
+Description: first_event = 3 & hoofdverrichting_code = 23 (Size = 386), Quality: 0.5421
+Description: hoofdverrichting_code = 23 & leeftijd <= 55 (Size = 386), Quality: 0.5421
+Description: hoofdverrichting_code = 23 & leeftijd <= 69 (Size = 389), Quality: 0.5456
+Description: hoofdverrichting_code = 23 & natrium <= 140.0 (Size = 308), Quality: 0.5810
+Description: hoofdverrichting_code = 23 & nibp_meet_waarde1 <= 147.0 (Size = 361), Quality: 0.5855
+Description: hoofdverrichting_code = 23 & nibp_meet_waarde1 <= 160.0 (Size = 432), Quality: 0.5983
+Description: hoofdverrichting_code = 23 & nibp_meet_waarde3 <= 101.30000305175781 (Size = 332), Quality: 0.6037
+Description: hoofdverrichting_code = 23 & natrium <= 142.0 (Size = 385), Quality: 0.6069
+Description: hoofdverrichting_code = 23 & nibp_meet_waarde3 <= 108.0 (Size = 412), Quality: 0.6083
+
+### No subgroups satisfy the constraints based on the condition "hoofdverrichting_code = 0" ###
+
+### No subgroups satisfy the constraints based on the condition "hoofdverrichting_code = 5" ###
+
+### No subgroups satisfy the constraints based on the condition "hoofdverrichting_code = 17" ###
+
+### No subgroups satisfy the constraints based on the condition "hoofdverrichting_code = 11" ###
+
+### These 10 subgroups were generated based on the condition "first event = 3" ###
+Description: first_event = 3 & leeftijd <= 47 (Size = 287), Quality: 0.1205
+Description: first_event = 3 & m_month = 3 (Size = 458), Quality: 0.3616
+Description: first_event = 3 & m_year = 2019 (Size = 499), Quality: 0.3913
+Description: first_event = 3 & specialisme_code = 26 (Size = 587), Quality: 0.3978
+Description: first_event = 3 & leeftijd <= 58 (Size = 758), Quality: 0.4809
+Description: first_event = 3 & leeftijd <= 61 (Size = 901), Quality: 0.5017
+Description: first_event = 3 & hoofdverrichting_code != 3 (Size = 725), Quality: 0.5087
+Description: first_event = 3 & spoed = True (Size = 1014), Quality: 0.5354
+Description: care_order = 1 & first_event = 3 (Size = 1114), Quality: 0.5403
+Description: first_event = 3 & hoofdverrichting_code = 23 (Size = 386), Quality: 0.5421
+
+### These 10 subgroups were generated based on the condition "first event = 1" ###
+Description: count_death_fullcode = 1 & m_month != 12 (Size = 286), Quality: 0.9947
+Description: count_death_fullcode = 1 & m_year != 2018 (Size = 286), Quality: 0.9947
+Description: first_event = 1 & m_month != 12 (Size = 286), Quality: 0.9947
+Description: first_event = 1 & m_year != 2018 (Size = 286), Quality: 0.9947
+Description: count_death_fullcode = 1 & nibp_meet_waarde1 <= 115.0 (Size = 280), Quality: 0.9949
+Description: first_event = 1 & nibp_meet_waarde1 <= 115.0 (Size = 280), Quality: 0.9949
+Description: count_death_fullcode = 1 & resp_meet_waarde1 >= 13.0 (Size = 290), Quality: 0.9950
+Description: first_event = 1 & resp_meet_waarde1 >= 13.0 (Size = 290), Quality: 0.9950
+Description: count_death_fullcode = 1 & nibp_meet_waarde1 <= 130.0 (Size = 439), Quality: 0.9950
+Description: first_event = 1 & nibp_meet_waarde1 <= 130.0 (Size = 439), Quality: 0.9950
+
+### These 10 subgroups were generated based on the condition "first event = 4" ###
+Description: first_event = 4 & kreatinine <= 77.0 (Size = 484), Quality: 0.4048
+Description: first_event = 4 & spo2_meet_waarde1 >= 98.0 (Size = 983), Quality: 0.4075
+Description: first_event = 4 & nibp_meet_waarde2 <= 67.0 (Size = 461), Quality: 0.4121
+Description: first_event = 4 & natrium <= 135.0 (Size = 900), Quality: 0.4125
+Description: first_event = 4 & prioriteit_code = 1 (Size = 1048), Quality: 0.4139
+Description: first_event = 4 & hr_meet_waarde1 >= 80.0 (Size = 1854), Quality: 0.4140
+Description: first_event = 4 & m_hour = 20 (Size = 277), Quality: 0.4146
+Description: first_event = 4 & hoofdverrichting_code != 4 (Size = 2103), Quality: 0.4148
+Description: first_event = 4 & spo2_meet_waarde1 >= 96.0 (Size = 2073), Quality: 0.4150
+Description: first_event = 4 & natrium <= 138.0 (Size = 2007), Quality: 0.4154
+
+### These 10 subgroups were generated based on the condition "first event = 0" ###
+Description: care_order = 1 & first_event = 0 (Size = 357), Quality: 0.9983
+Description: care_order != 0 & first_event = 0 (Size = 493), Quality: 0.9984
+Description: first_event = 0 & prioriteit_code = 0 (Size = 380), Quality: 0.9985
+Description: first_event = 0 & prioriteit_code != -1 (Size = 605), Quality: 0.9987
+Description: first_event = 0 & hoofdverrichting_code != -1 (Size = 605), Quality: 0.9987
+Description: first_event = 0 & leeftijd <= 54 (Size = 540), Quality: 0.9987
+Description: first_event = 0 & leeftijd <= 67 (Size = 666), Quality: 0.9988
+Description: first_event = 0 & ureum >= 7.599999904632568 (Size = 505), Quality: 0.9989
+Description: first_event = 0 & ureum >= 5.800000190734863 (Size = 703), Quality: 0.9989
+Description: first_event = 0 & kreatinine >= 87.0 (Size = 666), Quality: 0.9989
+
+### No subgroups satisfy the constraints based on the condition "first event = 2" ###
+
+### These 10 subgroups were generated based on the condition " care order = 0" ###
+Description: count_ic_6hr = 2 & m_day = 4 (Size = 1195), Quality: 0.9737
+Description: count_ic_6hr = 2 & spo2_meet_waarde1 <= 92.0 (Size = 547), Quality: 0.9737
+Description: count_ic_6hr = 2 & m_hour = 14 (Size = 1165), Quality: 0.9737
+Description: count_ic_6hr = 2 & m_day = 20 (Size = 1220), Quality: 0.9737
+Description: count_ic_6hr = 2 & m_day = 19 (Size = 1104), Quality: 0.9737
+Description: count_ic_6hr = 2 & m_day = 2 (Size = 1105), Quality: 0.9737
+Description: count_ic_6hr = 2 & spo2_meet_waarde1 <= 95.0 (Size = 5237), Quality: 0.9737
+Description: count_ic_6hr = 2 & m_hour = 17 (Size = 607), Quality: 0.9737
+Description: count_ic_6hr = 2 & m_hour = 16 (Size = 1131), Quality: 0.9737
+Description: count_ic_6hr = 2 & m_hour = 12 (Size = 1131), Quality: 0.9737
+
+### These 10 subgroups were generated based on the condition "care order = 1" ###
+Description: care_order = 1 & leeftijd <= 47 (Size = 435), Quality: 0.2624
+Description: care_order = 1 & kreatinine >= 198.0 (Size = 348), Quality: 0.3116
+Description: care_order = 1 & m_month = 3 (Size = 402), Quality: 0.3715
+Description: care_order = 1 & m_day = 8 (Size = 277), Quality: 0.4094
+Description: care_order = 1 & first_event = 4 (Size = 4131), Quality: 0.4210
+Description: care_order = 1 & ureum >= 14.0 (Size = 340), Quality: 0.4256
+Description: care_order = 1 & natrium <= 133.0 (Size = 351), Quality: 0.4278
+Description: care_order = 1 & specialisme_code = 3 (Size = 4119), Quality: 0.4330
+Description: care_order = 1 & hr_meet_waarde1 <= 61.0 (Size = 1874), Quality: 0.4362
+Description: care_order = 1 & hoofdverrichting_code = 4 (Size = 2082), Quality: 0.4363
+
+### These 10 subgroups were generated based on the condition "care order = -1" ###
+Description: care_order = -1 & first_event != 0 (Size = 276), Quality: 0.7147
+Description: care_order = -1 & spoed = True (Size = 323), Quality: 0.7588
+Description: care_order = -1 & leeftijd >= 57 (Size = 328), Quality: 0.7628
+Description: care_order = -1 & geslacht = False (Size = 347), Quality: 0.7730
+Description: care_order = -1 & leeftijd <= 63 (Size = 350), Quality: 0.7746
+Description: care_order = -1 & specialisme_code != 7 (Size = 361), Quality: 0.7817
+Description: care_order = -1 & leeftijd >= 38 (Size = 363), Quality: 0.7829
+Description: care_order = -1 & spo2_meet_waarde1 <= 97.0 (Size = 286), Quality: 0.7855
+Description: care_order = -1 & prioriteit_code != -1 (Size = 371), Quality: 0.7874
+Description: care_order = -1 & hoofdverrichting_code != -1 (Size = 371), Quality: 0.7874
+
+### No subgroups satisfy the constraints based on the condition "care order = 2" ###
+
+### These 10 subgroups were generated based on the condition "prioriteit_code = 0" ###
+Description: first_event = 4 & prioriteit_code = 0 (Size = 3084), Quality: 0.4233
+Description: m_month = 9 & prioriteit_code = 0 (Size = 3105), Quality: 0.4275
+Description: prioriteit_code = 0 & specialisme_code = 3 (Size = 3063), Quality: 0.4298
+Description: hoofdverrichting_code = 4 & prioriteit_code = 0 (Size = 2043), Quality: 0.4311
+Description: count_ic_6hr = 1 & prioriteit_code = 0 (Size = 3868), Quality: 0.4479
+Description: hoofdverrichting_code != 3 & prioriteit_code = 0 (Size = 2734), Quality: 0.4873
+Description: prioriteit_code = 0 & spoed = True (Size = 4072), Quality: 0.5041
+Description: hr_meet_waarde1 <= 62.0 & prioriteit_code = 0 (Size = 1736), Quality: 0.5144
+Description: care_order = 1 & prioriteit_code = 0 (Size = 4413), Quality: 0.5245
+Description: m_month = 3 & prioriteit_code = 0 (Size = 457), Quality: 0.5252
+
+### These 10 subgroups were generated based on the condition "prioriteit_code = 1" ###
+Description: first_event = 4 & prioriteit_code = 1 (Size = 1048), Quality: 0.4139
+Description: hoofdverrichting_code = 2 & prioriteit_code = 1 (Size = 1075), Quality: 0.4408
+Description: prioriteit_code = 1 & specialisme_code = 3 (Size = 1156), Quality: 0.4578
+Description: count_ic_6hr = 1 & prioriteit_code = 1 (Size = 1634), Quality: 0.4820
+Description: m_month = 9 & prioriteit_code = 1 (Size = 1398), Quality: 0.4864
+Description: hr_meet_waarde1 <= 61.0 & prioriteit_code = 1 (Size = 606), Quality: 0.5457
+Description: hoofdverrichting_code != 3 & prioriteit_code = 1 (Size = 1866), Quality: 0.5898
+Description: care_order = 1 & prioriteit_code = 1 (Size = 2074), Quality: 0.6089
+Description: leeftijd <= 71 & prioriteit_code = 1 (Size = 2114), Quality: 0.6097
+Description: prioriteit_code = 1 & spoed = True (Size = 2191), Quality: 0.6125
+
+### These 10 subgroups were generated based on the condition "prioriteit_code = -1" ###
+Description: leeftijd <= 57 & prioriteit_code = -1 (Size = 439), Quality: 0.9991
+Description: hoofdverrichting_code = -1 & leeftijd <= 57 (Size = 439), Quality: 0.9991
+Description: prioriteit_code = -1 & specialisme_code = 8 (Size = 420), Quality: 0.9991
+Description: hoofdverrichting_code = -1 & specialisme_code = 8 (Size = 420), Quality: 0.9991
+Description: leeftijd <= 73 & prioriteit_code = -1 (Size = 525), Quality: 0.9991
+Description: hoofdverrichting_code = -1 & leeftijd <= 73 (Size = 525), Quality: 0.9991
+Description: m_month = 12 & prioriteit_code = -1 (Size = 289), Quality: 0.9991
+Description: hoofdverrichting_code = -1 & m_month = 12 (Size = 289), Quality: 0.9991
+Description: prioriteit_code = -1 & ureum >= 6.300000190734863 (Size = 518), Quality: 0.9992
+Description: hoofdverrichting_code = -1 & ureum >= 6.300000190734863 (Size = 518), Quality: 0.9992
+
+### No subgroups satisfy the constraints based on the condition "prioriteit_code = 2" ###

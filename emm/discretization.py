@@ -1,59 +1,116 @@
+# this is for global discretization. Will not be used for EMM.
+
 import pandas as pd
+import math
 
-# apply equal frequency binning
-# so that approximately equal number of values are in each bin
+# feature that will be binned into single values
+single_binned = [
+    "geslacht",
+    "spoed",
+    "specialisme_code",
+    "first_event",
+    "count_death_fullcode",
+    "count_death_ic",
+    "count_ic_6hr",
+    "count_acute_ic",
+    "hoofdverrichting_code",
+    "prioriteit_code",
+    "care_order",
+    "m_year",
+    "m_month",
+    "m_day",
+    "m_hour",
+]
 
-# note: you could use qcut, however when there are duplicates
-# it does not assign approximately equal numbers in each bin even if you drop duplicates
-def discretize_numeric_cols(df, columns, bins_count=2):
+# apply fixed value, equal width binning
+def discretize_numeric_cols(df, columns, bins_count=2, bin_value=None):
 
     # initialize total discretized variables
     col_bins = {}
 
-    # discretize numeric columns
+    # for some variables, we just make a bin for each value
     for col in columns:
-        if pd.api.types.is_numeric_dtype(df[col]):
+        if col in single_binned or pd.api.types.is_bool_dtype(df[col]):
+            values = sorted(df[col].unique().tolist())
+            col_bins[col] = [(val,) for val in values]
 
-            # just in case there are missing values
-            values = df[col].dropna().tolist()
-            values.sort()
+        else:
+            # discretize numeric columns
+            if pd.api.types.is_numeric_dtype(df[col]):
 
-            # length of values of each column
-            n = len(values)
+                # just in case there are missing values
+                values = df[col].dropna()
 
-            # here we use equal frequency binning
-            # the number of values that each bin can hold, where bins_count is given
-            bin_size = n / bins_count
+                # get min and max values
+                min_val = values.min()
+                max_val = values.max()
 
-            # initalize bins for a column
-            bins = []
-            start_index = 0
+                # initalize bins
+                bins = []
 
-            # loop through for each bin
-            for b in range(bins_count):
+                # if fixed bin width is given,
+                if bin_value is not None:
 
-                # if the current bin is the end bin, then set the end index as length
-                if b == bins_count - 1:
-                    end_index = n
+                    # for handling min value,
+                    # if the minimum value is multiples of bin width
+                    if min_val % bin_value == 0:
 
-                # otherwise, set each bin's end index
-                # as the numbers of existing bins times the bin size
+                        # assign the current edge to minimum value
+                        c_edge = min_val
+
+                    # otherwise set next edge as (min value + next possible multiple value)
+                    else:
+                        n_edge = math.ceil(min_val / bin_value) * bin_value
+                        bins.append((min_val, n_edge))
+
+                        # update current edge to next edge
+                        c_edge = n_edge
+
+                    # for intervals,
+                    # if the upper limit of a bin is within the range
+                    while c_edge + bin_value <= max_val:
+
+                        # keep appending the tuple by increasing bin_value to the current edge
+                        bins.append((c_edge, c_edge + bin_value))
+
+                        # update the next current edge
+                        c_edge = c_edge + bin_value
+
+                    # for handling max,
+                    # if max value doesn't fit with bins
+                    if c_edge < max_val:
+
+                        # append with the current edge and max value
+                        bins.append((c_edge, max_val))
+
+                # if no bin_value is given,
                 else:
-                    end_index = int(round((b + 1) * bin_size))
 
-                # assign the sorted values to each bin based on indices
-                bin_vals = values[start_index:end_index]
+                    # each bin width
+                    bin_width = (max_val - min_val) / bins_count
 
-                # append the bin range to each bins, rather than actual values
-                # e.g. {'age': (0, 10], (10, 20], (20, 30]}
-                if len(bin_vals) > 0:
-                    bins.append((bin_vals[0], bin_vals[-1]))
+                    # loop through for each bin
+                    for b in range(bins_count):
 
-                # update start index and go on
-                start_index = end_index
+                        # the lower bound of bin
+                        l = min_val + b * bin_width
 
-            # assign the bins to each column
-            col_bins[col] = bins
+                        # for the last bin, the max value is the higher bound
+                        if b == bins_count - 1:
+                            r = max_val
+
+                        # otherwise, set higher bound as lower + width
+                        else:
+                            r = l + bin_width
+
+                        # append for each bin
+                        bins.append((l, r))
+
+                # assign the bins to each column
+                col_bins[col] = bins
+
+    #         print(f"For column", col)
+    #         print(col_bins[col], "\n")
 
     # return the whole discretized variables
     return col_bins

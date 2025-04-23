@@ -23,7 +23,11 @@ def fit_lr(X_train, y_train, duration_col, event_col):
 
     # fit with class weights, replicating less frequent events
     lr = LogisticRegression(
-        random_state=42, class_weight="balanced", n_jobs=-1, solver="saga"
+        random_state=42,
+        solver="saga",
+        class_weight="balanced",
+        n_jobs=-1,
+        max_iter=50000,
     )
     lr.fit(X_train, y_train)
 
@@ -44,7 +48,11 @@ def predict_lr(lr, X_test, test_df):
     # add a single probability
     model_with_prob = test_df.copy()
     model_with_prob["lr_probability"] = y_pred_prob
-    save_parquet(model_with_prob, "./data_sa", "lr_with_prob.parquet")
+    save_parquet(
+        model_with_prob,
+        "..",
+        "lr_with_prob.parquet",
+    )
     lr_test_df = model_with_prob
 
     return y_pred, y_pred_prob, lr_test_df

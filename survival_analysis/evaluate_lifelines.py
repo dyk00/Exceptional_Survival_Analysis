@@ -28,13 +28,21 @@ def evaluate_lifelines(
     model_names,
     train_df,
     test_df,
+    val_df,
+    X_train,
     X_test,
+    X_val,
     y_train_surv,
     y_test_surv,
+    y_val_surv,
     duration_col,
     event_col,
-    time_grid,
-    event_time_grid,
+    time_grid_train,
+    event_time_grid_train,
+    time_grid_test,
+    event_time_grid_test,
+    time_grid_val,
+    event_time_grid_val,
 ):
     # global FIT_FUNCTIONS1
 
@@ -50,116 +58,336 @@ def evaluate_lifelines(
                 train_df, duration_col, event_col, alpha=0.05, penalizer=0.01
             )
         else:
-            model = fit_function(train_df, duration_col, event_col)
+            train_df = train_df.reset_index()
+            val_df = val_df.reset_index()
+            test_df = test_df.reset_index()
+            train_df_fit = train_df.drop(columns=["p_id", "opname_id"])
+
+            model = fit_function(train_df_fit, duration_col, event_col)
 
         # print the summary
         print(model.print_summary())
 
         # print the proportional hazards summary and check assumptions
-        if model_name == "cox_lf":
-            print("Proportional Hazards Summary:\n")
-            result = proportional_hazard_test(model, train_df, time_transform="rank")
-            print(result.print_summary(decimals=3))
-            print(result.summary)
-            model.check_assumptions(train_df, p_value_threshold=0.05, show_plots=False)
+        #         if model_name == "cox_lf":
+        #             print("Proportional Hazards Summary:\n")
+        #             result = proportional_hazard_test(model, train_df, time_transform="rank")
+        #             print(result.print_summary(decimals=3))
+        #             print(result.summary)
+        #             model.check_assumptions(train_df, p_value_threshold=0.05, show_plots=False)
 
-        # plot coefficients with CI
-        plot_coef_ci(model)
+        survival_train = model.predict_survival_function(X_train, times=time_grid_train)
+        surv_probs_train = survival_train.T.to_numpy()
 
-        # smoothed calibration curves, evaulating at time point 100
-        survival_probability_calibration(model, train_df, t0=100)
+        survival_val = model.predict_survival_function(X_val, times=time_grid_val)
+        surv_probs_val = survival_val.T.to_numpy()
 
-        # predict survival probabilities
-        survival = model.predict_survival_function(X_test, times=time_grid)
-        surv_probs = survival.T.to_numpy()
+        survival_test = model.predict_survival_function(X_test, times=time_grid_test)
+        surv_probs_test = survival_test.T.to_numpy()
 
-        # plot survival curve per individuals
-        # or sample_size=len(survival)
-        plot_survival_functions(survival, sample_size=5)
-
-        # # k fold cross validation using c-index
-        # scores = k_fold_cross_validation(
-        #     model,
-        #     train_df,
-        #     duration_col,
-        #     event_col,
-        #     k=5,
-        #     scoring_method="concordance_index",
-        #     seed=42,
-        # )
-        # print("K-Fold Score:", scores)
-        # print("K-Fold Mean Score:", np.mean(scores))
-
-        # c-index for training data
-        print("Concordance Index on Training Set:", model.concordance_index_)
+        # c index on all sets
+        c_index_train = model.score(train_df, scoring_method="concordance_index")
+        print(f"Concordance Index on Training Set: {c_index_train}")
+        c_index_val = model.score(val_df, scoring_method="concordance_index")
+        print(f"Concordance Index on Validation Set: {c_index_val}")
+        c_index_test = model.score(test_df, scoring_method="concordance_index")
+        print(f"Concordance Index on Test Set: {c_index_test}")
 
         # c-index on test data
         if model_name == "cox_lf":
-            hazard_scores = model.predict_partial_hazard(X_test)
-
-            # the usage:
-            # https://scikit-survival.readthedocs.io/en/stable/user_guide/evaluating-survival-models.html
-            c_index = concordance_index_censored(
-                y_test_surv[event_col], y_test_surv[duration_col], hazard_scores
-            )
-            print(f"Concordance Index on Test Set: {c_index[0]}")
+            hazard_train = model.predict_partial_hazard(X_train)
+            hazard_val = model.predict_partial_hazard(X_val)
+            hazard_test = model.predict_partial_hazard(X_test)
 
             # get c-index based on inverse probability of censoring weights
             c_index_ipcw = concordance_index_ipcw(
-                y_train_surv, y_test_surv, hazard_scores
+                y_train_surv, y_train_surv, hazard_train
+            )
+            print("Concordance Index IPCW on Training Set:", c_index_ipcw[0])
+
+            c_index_ipcw = concordance_index_ipcw(y_train_surv, y_val_surv, hazard_val)
+            print("Concordance Index IPCW on Validation Set:", c_index_ipcw[0])
+
+            c_index_ipcw = concordance_index_ipcw(
+                y_train_surv, y_test_surv, hazard_test
             )
             print("Concordance Index IPCW on Test Set:", c_index_ipcw[0])
 
-            # # c-index on test data (not necessary to have)
-            # # get concordance index on test set
-            # # if the predicted scores are risks/hazards, multiply by -1
-            # # https://lifelines.readthedocs.io/en/latest/lifelines.utils.html
-            # c_index = concordance_index(
-            #     test_df[duration_col], -hazard_scores, test_df[event_col]
-            # )
-            # print("Concordance Index on Test Set:", c_index)
-
-        # c-index on test data
-        print(
-            "Concordance Index on Test Set:",
-            model.score(test_df, scoring_method="concordance_index"),
+        ibs_train = integrated_brier_score(
+            y_train_surv, y_train_surv, surv_probs_train, time_grid_train
+        )
+        ibs_val = integrated_brier_score(
+            y_train_surv, y_val_surv, surv_probs_val, time_grid_val
+        )
+        ibs_test = integrated_brier_score(
+            y_train_surv, y_test_surv, surv_probs_test, time_grid_test
         )
 
-        # get ibs
-        # estimate should be the survival probabilites
-        ibs = integrated_brier_score(y_train_surv, y_test_surv, surv_probs, time_grid)
-        print("Integrated Brier Score:", ibs)
+        print(f"Integrated Brier Score on Training Set: {ibs_train}")
+        print(f"Integrated Brier Score on Validation Set: {ibs_val}")
+        print(f"Integrated Brier Score on Test Set: {ibs_test}")
 
-        # get time dependent auc
-        risk_probs = 1 - surv_probs
-        auc_scores, mean_auc_score = cumulative_dynamic_auc(
-            y_train_surv, y_test_surv, risk_probs, event_time_grid
+        risk_probs_train = 1 - surv_probs_train
+        risk_probs_val = 1 - surv_probs_val
+        risk_probs_test = 1 - surv_probs_test
+
+        auc_scores_train, mean_auc_train = cumulative_dynamic_auc(
+            y_train_surv, y_train_surv, risk_probs_train, event_time_grid_train
         )
-        print("Time-Dependent AUC scores:", auc_scores)
-        print("Mean AUC score:", mean_auc_score)
-        plot_time_dependent_auc(event_time_grid, auc_scores, mean_auc_score)
+        auc_scores_val, mean_auc_val = cumulative_dynamic_auc(
+            y_train_surv, y_val_surv, risk_probs_val, event_time_grid_val
+        )
+        auc_scores_test, mean_auc_test = cumulative_dynamic_auc(
+            y_train_surv, y_test_surv, risk_probs_test, event_time_grid_test
+        )
 
-        # get time dependent roc curve for multiple time points
-        # the time points will be adjusted to the defined time grid
-        eval_times = [100, 300, 500, 700, 900]
+        print(f"Mean AUC on Training Set: {mean_auc_train}")
+        print(f"Mean AUC on Validation Set: {mean_auc_val}")
+        print(f"Mean AUC on Test Set: {mean_auc_test}")
+
+        plot_time_dependent_auc(
+            event_time_grid_train,
+            auc_scores_train,
+            mean_auc_train,
+            model_name=model_name + "_train",
+        )
+        plot_time_dependent_auc(
+            event_time_grid_val,
+            auc_scores_val,
+            mean_auc_val,
+            model_name=model_name + "_val",
+        )
+        plot_time_dependent_auc(
+            event_time_grid_test,
+            auc_scores_test,
+            mean_auc_test,
+            model_name=model_name + "_test",
+        )
+
         plot_time_dependent_roc(
-            eval_times=eval_times,
-            survival=survival,
-            time_grid=time_grid,
+            survival=survival_train,
+            time_grid=time_grid_train,
+            test_df=train_df,
+            duration_col=duration_col,
+            event_col=event_col,
+            model_name=model_name + "_train",
+        )
+
+        plot_time_dependent_roc(
+            survival=survival_val,
+            time_grid=time_grid_val,
+            test_df=val_df,
+            duration_col=duration_col,
+            event_col=event_col,
+            model_name=model_name + "_val",
+        )
+
+        plot_time_dependent_roc(
+            survival=survival_test,
+            time_grid=time_grid_test,
             test_df=test_df,
             duration_col=duration_col,
             event_col=event_col,
+            model_name=model_name + "_test",
         )
 
         # plot survival curve
-        plot_survival_cols(model, train_df, cols=["age", "male"], bins_count=5)
+        plot_survival_cols(
+            model, train_df, cols=["geslacht"], bins_count=10, model_name=model_name
+        )
+        plot_survival_cols(
+            model, train_df, cols=["leeftijd"], bins_count=10, model_name=model_name
+        )
+        plot_survival_cols(
+            model, train_df, cols=["first_event"], bins_count=10, model_name=model_name
+        )
+        plot_survival_cols(
+            model, train_df, cols=["spoed"], bins_count=10, model_name=model_name
+        )
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["count_acute_ic"],
+            bins_count=10,
+            model_name=model_name,
+        )
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["count_death_fullcode"],
+            bins_count=10,
+            model_name=model_name,
+        )
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["count_death_ic"],
+            bins_count=10,
+            model_name=model_name,
+        )
+        plot_survival_cols(
+            model, train_df, cols=["count_ic_6hr"], bins_count=10, model_name=model_name
+        )
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["hoofdverrichting_code"],
+            bins_count=10,
+            model_name=model_name,
+        )
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["specialisme_code"],
+            bins_count=10,
+            model_name=model_name,
+        )
+        plot_survival_cols(
+            model, train_df, cols=["m_day"], bins_count=10, model_name=model_name
+        )
+        plot_survival_cols(
+            model, train_df, cols=["m_hour"], bins_count=10, model_name=model_name
+        )
+        plot_survival_cols(
+            model, train_df, cols=["m_month"], bins_count=10, model_name=model_name
+        )
+        plot_survival_cols(
+            model, train_df, cols=["m_year"], bins_count=10, model_name=model_name
+        )
 
-        # aft models can show expected times
-        if model_name in ["weibull", "ln", "ll"]:
-            expected_survival = model.predict_expectation(X_test)
-            plot_expected_survival(expected_survival, model_name)
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["first_event", "geslacht"],
+            bins_count=10,
+            model_name=model_name,
+        )
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["leeftijd", "geslacht"],
+            bins_count=10,
+            model_name=model_name,
+        )
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["hoofdverrichting_code", "geslacht"],
+            bins_count=10,
+            model_name=model_name,
+        )
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["specialisme_code", "geslacht"],
+            bins_count=10,
+            model_name=model_name,
+        )
 
-        # to run emm, get new test df after fitting a model
-        model_with_prob = test_df.copy()
-        model_with_prob = get_avg_hourly(model_with_prob, survival, duration_col)
-        save_parquet(model_with_prob, "./data_sa", f"{model_name}_with_prob.parquet")
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["first_event", "leeftijd"],
+            bins_count=10,
+            model_name=model_name,
+        )
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["first_event", "specialisme_code"],
+            bins_count=10,
+            model_name=model_name,
+        )
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["first_event", "hoofdverrichting_code"],
+            bins_count=10,
+            model_name=model_name,
+        )
+
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["hoofdverrichting_code", "leeftijd"],
+            bins_count=10,
+            model_name=model_name,
+        )
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["specialisme_code", "leeftijd"],
+            bins_count=10,
+            model_name=model_name,
+        )
+
+        plot_survival_cols(
+            model,
+            train_df,
+            cols=["first_event", "geslacht", "leeftijd"],
+            bins_count=10,
+            model_name=model_name,
+        )
+
+        #         # aft models can show expected times
+        #         if model_name in ["weibull", "ln", "ll"]:
+        #             expected_survival = model.predict_expectation(X_test)
+        #             plot_expected_survival(expected_survival, model_name=model_name)
+
+        # code for below, for calculating the avg surv and hourly probs to each opname
+        test_df_reset = test_df.reset_index(drop=False)
+
+        # group per p_id and opname_id
+        grouped_test_df = test_df_reset.groupby(
+            ["p_id", "opname_id"], as_index=False
+        ).first()
+
+        # drop unnecessary cols for predicting
+        X_test_grouped = grouped_test_df.drop(
+            columns=["p_id", "opname_id", "time_to_first_event", "is_first"],
+            errors="ignore",
+        )
+
+        # get the prediction
+        survival_test_grouped = model.predict_survival_function(
+            X_test_grouped, times=time_grid_test
+        )
+        model_with_prob_grouped = grouped_test_df.copy()
+
+        # get the avg and hourly surv probabilities
+        model_with_prob_grouped = get_avg_hourly(
+            model_with_prob_grouped,
+            survival_test_grouped,
+            duration_col="time_to_first_event",
+        )
+
+        test_df_reset = test_df.reset_index(drop=False)
+
+        # merge back with p id and opname id
+        final_test_df = test_df_reset.merge(
+            model_with_prob_grouped[
+                [
+                    "p_id",
+                    "opname_id",
+                    "avg_survival_probability",
+                    "hourly_probabilities",
+                ]
+            ],
+            on=["p_id", "opname_id"],
+            how="left",
+        )
+        save_parquet(
+            final_test_df,
+            "..",
+            f"{model_name}_with_prob.parquet",
+        )
+
+
+#         # checking if the same opname id indeed have the same probs
+#         unique_counts = final_test_df.groupby('opname_id')['avg_survival_probability'].nunique()
+#         print(unique_counts)
+#         print((unique_counts == 1).all())
+
+#         unique_counts1 = final_test_df.groupby('opname_id')['hourly_probabilities_tuple'].nunique()
+#         print(unique_counts1)
+#         print((unique_counts1 == 1).all())

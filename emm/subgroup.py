@@ -12,24 +12,30 @@ def filter_data(description, data):
     mask = pd.Series(True, index=data.index)
 
     # description is a list of tuples (var, value)
-    # (e.g. [('age', [30, 41)), ('male', True)])
-    # value can be a single (bool/numeric) value True, (41) or range [30, 41)
-    # e.g. var = 'age', value = [30, 41)
     for var, value in description:
 
         # check if the value is the same as the description's value (e.g. True)
         if isinstance(value, bool):
             mask = mask & (data[var] == value)
 
-        # check whether the actual value is
-        # in the range of the description's value (e.g. [30, 41))
-        elif isinstance(value, tuple):
-            l, r = value
-            mask = mask & (data[var] >= l) & (data[var] < r)
+        # check whether the actual value is same as
+        # the nomial or single value numeric value
+        elif isinstance(value, (int, float, str)):
+            mask = mask & (data[var] == value)
 
-        # check if the value is the same as the description's value (e.g. 41)
-        else:
-            mask = mask & data[var] == value
+        # e.g. value = ("<=", s_j) or (">=", s_j)
+        elif isinstance(value, tuple) and len(value) == 2:
+            sym, num = value
+            if sym == "<=":
+                mask = mask & (data[var] <= num)
+            elif sym == ">=":
+                mask = mask & (data[var] >= num)
+            else:
+                # if ("=", something) or ("!=", something)
+                if sym == "!=":
+                    mask = mask & (data[var] != num)
+                elif sym == "=":
+                    mask = mask & (data[var] == num)
 
     # return the filtered data (subgroup)
     return data[mask]

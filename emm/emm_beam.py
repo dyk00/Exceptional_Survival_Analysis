@@ -3,10 +3,11 @@ from .priority_queue import PriorityQueue
 from .constraints import satisfies_all
 from .refinement import refinement_operator
 from .quality_measure import quality_measure
+from .description import description_to_string
 import heapq
 
 
-def emm_beam(dataset, columns, col_bins, w, d, q, constraints):
+def emm_beam(dataset, columns, w, d, q, constraints, b=2):
 
     # initialize candidate queue
     # double-ended queue with O(1) performance for adding and removing
@@ -21,6 +22,8 @@ def emm_beam(dataset, columns, col_bins, w, d, q, constraints):
     # for each level until maximum depth
     for level in range(1, d + 1):
 
+        print(f"\n== Depth {level} ==")
+
         # initialize beam with max size w (local best)
         beam = PriorityQueue(max_size=w)
 
@@ -31,7 +34,8 @@ def emm_beam(dataset, columns, col_bins, w, d, q, constraints):
             seed_desc = candidate_queue.popleft()
 
             # generate new descriptions by applying refinement operator
-            new_desc = refinement_operator(seed_desc, dataset, columns, col_bins)
+            # level for printing splits
+            new_desc = refinement_operator(seed_desc, dataset, columns, b, level)
 
             # for each new description
             for desc in new_desc:
@@ -47,6 +51,13 @@ def emm_beam(dataset, columns, col_bins, w, d, q, constraints):
 
                     # insert the description into beam
                     beam.insert_with_priority(desc, quality)
+
+        #         with open("results.txt", "a") as f:
+        #             for desc in new_desc:
+        #                 quality = quality_measure(desc, dataset)
+        #                 satisfies = satisfies_all(desc, dataset, constraints)
+        #                 desc_str = description_to_string(desc)
+        #                 f.write(f"Description: {desc_str} | Quality: {quality} | Satisfies constraints: {satisfies}\n")
 
         # while beam is not empty
         while not beam.empty():

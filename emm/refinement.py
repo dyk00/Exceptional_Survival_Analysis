@@ -1,59 +1,114 @@
+import math
 import pandas as pd
+from .subgroup import filter_data
 
-# check if the column/variable is already in the seed description
-def bool_var_exists(description, col):
-    for desc in description:
-        # where desc is a tuple (var, value)
-        if desc[0] == col:
-            return True
-    return False
-
-
-# check if the column/variable and its range are already in the seed description
-def num_var_range_exists(description, col, bin_range):
-    for desc in description:
-        if desc[0] == col and desc[1] == bin_range:
-            return True
-    return False
-
+nominal_vars = [
+    "specialisme_code",
+    "first_event",
+    "count_death_fullcode",
+    "count_death_ic",
+    "count_ic_6hr",
+    "count_acute_ic",
+    "hoofdverrichting_code",
+    "prioriteit_code",
+    "care_order",
+    "m_year",
+    "m_month",
+    "m_day",
+    "m_hour",
+]
 
 # add new descriptions to the seed description
-# (e.g. [('age', [30, 41))] to [('age', [30, 41)), ('male', True)])
-def refinement_operator(seed_desc, dataset, columns, col_bins):
+def refinement_operator(seed_desc, dataset, columns, b, level):
 
     # initialize new_descriptions
     new_descriptions = []
 
-    # for each column
+    # get the current subgroup
+    current_subgroup = filter_data(seed_desc, dataset)
+
+    # existing descriptions
+    current_descriptions = set(desc[0] for desc in seed_desc)
+
     for col in columns:
+        # skip if used
+        if col in current_descriptions:
+            continue
 
-        # if the column is boolean
-        if pd.api.types.is_bool_dtype(dataset[col]):
+        # subgroup_cols = current_subgroup[col].dropna()
+        subgroup_cols = current_subgroup[col]
 
-            # if the column is not in the seed description yet
-            if not bool_var_exists(seed_desc, col):
+        if len(subgroup_cols) == 0:
+            continue
 
-                # add the column with False and True to the existing seed description
-                new_descriptions.append(seed_desc + [(col, False)])
-                new_descriptions.append(seed_desc + [(col, True)])
+        # skip unhashable errors in case inputting wrong vars
+        try:
+            unique_vals = subgroup_cols.unique()
+        except TypeError:
+            # print(f"Depth {level} Skipping {col}")
+            continue
 
-        # if the column is numeric
-        elif pd.api.types.is_numeric_dtype(dataset[col]):
+        # for bools or only 2 values
+        if pd.api.types.is_bool_dtype(subgroup_cols) or len(unique_vals) == 2:
+            bin_values = unique_vals
+            for val in bin_values:
+                desc_new = seed_desc + [(col, ("=", val))]
+                new_descriptions.append(desc_new)
+            # print(f"Depth {level} Processing {col}. Values = {bin_values}")
 
-            # if the column and its range are not in the seed description yet
-            if not bool_var_exists(seed_desc, col):
+        # for nominal variables that are specified
+        # (otherwise it'll be processed as numerical vars)
+        elif col in nominal_vars:
+            nominal_values = unique_vals
+            for val in nominal_values:
+                desc_eq = seed_desc + [(col, ("=", val))]
+                desc_neq = seed_desc + [(col, ("!=", val))]
+                new_descriptions.append(desc_eq)
+                new_descriptions.append(desc_neq)
+            # print(f"Depth {level} Processing {col}. Values = {nominal_values}")
 
-                # add all possible ranges of this column from col_bins as a list
-                possible_ranges = col_bins.get(col, [])
+        # for nominal variables string or category types
+        elif pd.api.types.is_string_dtype(
+            subgroup_cols
+        ) or pd.api.types.is_categorical_dtype(subgroup_cols):
+            nominal_values = unique_vals
+            for val in nominal_values:
+                desc_eq = seed_desc + [(col, ("=", val))]
+                desc_neq = seed_desc + [(col, ("!=", val))]
+                new_descriptions.append(desc_eq)
+                new_descriptions.append(desc_neq)
 
-                # for each range in the possible ranges
-                for r in possible_ranges:
+            # print(f"Depth {level} Processing {col}. Values = {nominal_values}")
 
-                    # if the column and its range is not in the seed description
-                    if not num_var_range_exists(seed_desc, col, r):
+        # for numeric variables
+        elif pd.api.types.is_numeric_dtype(subgroup_cols):
+            sorted_vals = unique_vals
+            n = len(sorted_vals)
 
-                        # add the range to the existing seed description
-                        new_descriptions.append(seed_desc + [(col, r)])
+            # in case only single value exists
+            if n == 1:
+                single_val = sorted_vals[0]
+                new_descriptions.append(seed_desc + [(col, single_val)])
+                # print(f"Depth {level} Processing {col}. Values = {single_val}")
+            else:
+                # for getting split points
+                split_points = []
+                for j in range(1, b):
+                    idx = math.floor((j * n) / b) - 1
+                    idx = max(0, min(idx, n - 1))
+                    s_j = sorted_vals[idx]
+                    split_points.append(s_j)
+
+                for s_j in split_points:
+                    desc_le = seed_desc + [(col, ("<=", s_j))]
+                    desc_ge = seed_desc + [(col, (">=", s_j))]
+                    new_descriptions.append(desc_le)
+                    new_descriptions.append(desc_ge)
+
+                # print(f"Depth {level} Processings {col}. Split points = {split_points}")
+
+        # else:
+        # print(f"Depth {level} Skipping {col}. - Error in data")
 
     # return new refiend descriptions
     return new_descriptions

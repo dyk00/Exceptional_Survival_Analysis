@@ -17,16 +17,14 @@ from sksurv.ensemble import (
 
 # cox training using lifelines
 # alpha being CI of coef
-def fit_cox_lf(
-    train_df, duration_col, event_col, alpha=0.05, penalizer=0.01, l1_ratio=0.5
-):
-    cph = CoxPHFitter(alpha=alpha, penalizer=penalizer, l1_ratio=l1_ratio)
+def fit_cox_lf(train_df, duration_col, event_col, alpha=0.05, penalizer=0.01):
+    cph = CoxPHFitter(alpha=alpha, penalizer=penalizer)
     cph.fit(train_df, duration_col, event_col, batch_mode=True)
     return cph
 
 
 # cox training using scikit-survival
-def fit_cox_sk(X_train, y_train_surv, alpha=0.05):
+def fit_cox_sk(X_train, y_train_surv, alpha=0.01):
     coxph = CoxPHSurvivalAnalysis(alpha=alpha)
     coxph.fit(X_train, y_train_surv)
     return coxph
@@ -34,9 +32,9 @@ def fit_cox_sk(X_train, y_train_surv, alpha=0.05):
 
 # cox training using scikit-survival
 # alpha being strength of regularization == penalizer in lifelines
-def fit_coxnet_sk(X_train, y_train_surv, alpha_min_ratio=0.05, l1_ratio=0.5):
+def fit_coxnet_sk(X_train, y_train_surv, alphas=[0.01], l1_ratio=0.5):
     coxphnet = CoxnetSurvivalAnalysis(
-        alpha_min_ratio=alpha_min_ratio, l1_ratio=l1_ratio, fit_baseline_model=True
+        alphas=alphas, l1_ratio=l1_ratio, fit_baseline_model=True
     )
     coxphnet.fit(X_train, y_train_surv)
     return coxphnet
@@ -87,12 +85,18 @@ def fit_rsf(
     X_train,
     y_train,
     n_estimators=100,
+    max_depth=5,
+    min_samples_split=10,
     random_state=42,
 ):
     rsf = RandomSurvivalForest(
         n_estimators=n_estimators,
+        max_depth=max_depth,
+        min_samples_split=min_samples_split,
         random_state=random_state,
         n_jobs=-1,
+        bootstrap=False,
+        # oob_score=True
     )
     rsf.fit(X_train, y_train)
     return rsf
@@ -103,12 +107,18 @@ def fit_ersf(
     X_train,
     y_train,
     n_estimators=100,
+    max_depth=5,
+    min_samples_split=10,
     random_state=42,
 ):
     ersf = ExtraSurvivalTrees(
         n_estimators=n_estimators,
+        max_depth=max_depth,
+        min_samples_split=min_samples_split,
         random_state=random_state,
         n_jobs=-1,
+        bootstrap=False,
+        # oob_score=True
     )
     ersf.fit(X_train, y_train)
     return ersf

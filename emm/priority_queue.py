@@ -10,6 +10,9 @@ class PriorityQueue:
         # maintain a set for removing duplicate
         self.seen = set()
 
+        # for removing error
+        self.counter = 0
+
     # insert a tuple (-priority, description) into min-heap
     # negative priority is easy to handle
     # when removing description with actual highest probability
@@ -19,7 +22,8 @@ class PriorityQueue:
 
         # if description is not in seen, push to heap and seen
         if sorted_desc not in self.seen:
-            heapq.heappush(self.heap, (priority, sorted_desc))
+            self.counter += 1
+            heapq.heappush(self.heap, (priority, self.counter, sorted_desc))
             self.seen.add(sorted_desc)
 
             # if exceeds the max size, remove description with acutal highest probability
@@ -27,7 +31,7 @@ class PriorityQueue:
             # as we're focusing on finding descriptions with lowest probability
             if self.max_size is not None and len(self.heap) > self.max_size:
                 removed = heapq.heappop(self.heap)
-                self.seen.remove(removed[1])
+                self.seen.remove(removed[2])
 
     # return True if the heap is empty
     def empty(self):
@@ -37,7 +41,7 @@ class PriorityQueue:
     def get_pop_front_element(self):
         if self.empty():
             return None
-        priority, description = heapq.heappop(self.heap)
+        priority, _, description = heapq.heappop(self.heap)
         self.seen.remove(description)
         return description
 

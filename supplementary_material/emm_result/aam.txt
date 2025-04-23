@@ -1,0 +1,467 @@
+### These 10 subgroups were generated without being based on any specific variables ###
+Description: BPSYS <= 36.0 & BPSYS_I >= 55.0 (Size = 999), Quality (100-AAM): 32.3607, Quality (AAM): 67.6393
+Description: BPSYS <= 31.0 & SHOCK >= 0.9793103448275862 (Size = 1367), Quality (100-AAM): 35.2390, Quality (AAM): 64.7610
+Description: BPSYS <= 66.0 & BPSYS_I >= 102.0 (Size = 958), Quality (100-AAM): 39.6369, Quality (AAM): 60.3631
+Description: BPSYS <= 72.0 & BPSYS_I >= 120.0 (Size = 587), Quality (100-AAM): 41.0547, Quality (AAM): 58.9453
+Description: BPDIA >= 73.0 & BPSYS <= 72.0 (Size = 452), Quality (100-AAM): 41.3691, Quality (AAM): 58.6309
+Description: HRTRT_I >= 36.99999999999999 & RSPRT <= 2.0 (Size = 413), Quality (100-AAM): 49.2211, Quality (AAM): 50.7789
+Description: BPSYS <= 56.0 & HEMAT >= 0.35 (Size = 572), Quality (100-AAM): 50.5712, Quality (AAM): 49.4288
+Description: RSPRT <= 2.0 & RSPRT_W >= 21.0 (Size = 522), Quality (100-AAM): 51.3842, Quality (AAM): 48.6158
+Description: BICARB <= 21.9 & RSPRT <= 0.0 (Size = 341), Quality (100-AAM): 51.7498, Quality (AAM): 48.2502
+Description: BPSYS_I >= 55.0 & RSPRT <= 0.0 (Size = 293), Quality (100-AAM): 52.1813, Quality (AAM): 47.8187
+
+### These 10 subgroups were generated based on the condition "SEX = True" ###
+Description: BPSYS <= 56.0 & SEX = True (Size = 1250), Quality (100-AAM): 48.1307, Quality (AAM): 51.8693
+Description: RSPRT <= 2.0 & SEX = True (Size = 1674), Quality (100-AAM): 67.1729, Quality (AAM): 32.8271
+Description: LAPS2 >= 162.0 & SEX = True (Size = 478), Quality (100-AAM): 71.8453, Quality (AAM): 28.1547
+Description: SEX = True & SHOCK >= 1.4150943396226414 (Size = 9216), Quality (100-AAM): 86.9459, Quality (AAM): 13.0541
+Description: HRTRT >= 186.0 & SEX = True (Size = 324), Quality (100-AAM): 86.9571, Quality (AAM): 13.0429
+Description: ACT >= 6.8 & SEX = True (Size = 1557), Quality (100-AAM): 87.5927, Quality (AAM): 12.4073
+Description: HRTRT >= 188.0 & SEX = True (Size = 304), Quality (100-AAM): 88.6178, Quality (AAM): 11.3822
+Description: LAPS2 >= 121.0 & SEX = True (Size = 11366), Quality (100-AAM): 89.7046, Quality (AAM): 10.2954
+Description: BPSYS_I >= 129.0 & SEX = True (Size = 2046), Quality (100-AAM): 89.7082, Quality (AAM): 10.2918
+Description: RSPRT >= 36.0 & SEX = True (Size = 8360), Quality (100-AAM): 90.3106, Quality (AAM): 9.6894
+
+### These 10 subgroups were generated based on the condition "SEX = False" ###
+Description: LAPS2 >= 162.0 & SEX = False (Size = 307), Quality (100-AAM): 78.8107, Quality (AAM): 21.1893
+Description: LAPS2 >= 150.0 & SEX = False (Size = 648), Quality (100-AAM): 82.2526, Quality (AAM): 17.7474
+Description: ACT >= 7.0 & SEX = False (Size = 836), Quality (100-AAM): 92.4689, Quality (AAM): 7.5311
+Description: SEX = False & TEMP >= 40.6 (Size = 469), Quality (100-AAM): 93.5773, Quality (AAM): 6.4227
+Description: ANIONGAP >= 18.0 & SEX = False (Size = 530), Quality (100-AAM): 94.6838, Quality (AAM): 5.3162
+Description: HRTRT >= 141.0 & SEX = False (Size = 9962), Quality (100-AAM): 94.7056, Quality (AAM): 5.2944
+Description: ACT >= 4.2 & SEX = False (Size = 4207), Quality (100-AAM): 95.3423, Quality (AAM): 4.6577
+Description: RSPRT_I >= 3.4657359027997265 & SEX = False (Size = 1677), Quality (100-AAM): 95.5204, Quality (AAM): 4.4796
+Description: BPSYS_I >= 121.0 & SEX = False (Size = 3992), Quality (100-AAM): 95.6275, Quality (AAM): 4.3725
+Description: RSPRT_I >= 3.295836866004329 & SEX = False (Size = 5671), Quality (100-AAM): 95.8516, Quality (AAM): 4.1484
+
+### These 10 subgroups were generated based on the condition "ADMIT1 = False" ###
+Description: ADMIT2 = True & BPSYS <= 54.0 (Size = 390), Quality (100-AAM): 41.6546, Quality (AAM): 58.3454
+Description: ADMIT1 = False & LAPS2 >= 170.0 (Size = 318), Quality (100-AAM): 61.8491, Quality (AAM): 38.1509
+Description: ADMIT2 = True & RSPRT <= 0.0 (Size = 840), Quality (100-AAM): 67.1073, Quality (AAM): 32.8927
+Description: ADMIT2 = True & RSPRT <= 3.0 (Size = 986), Quality (100-AAM): 70.3692, Quality (AAM): 29.6308
+Description: ADMIT1 = False & RSPRT <= 2.0 (Size = 2400), Quality (100-AAM): 70.4140, Quality (AAM): 29.5860
+Description: ADMIT1 = False & BPDIA >= 159.0 (Size = 308), Quality (100-AAM): 73.0103, Quality (AAM): 26.9897
+Description: ADMIT4 = True & LAPS2 >= 146.0 (Size = 282), Quality (100-AAM): 77.7416, Quality (AAM): 22.2584
+Description: ACT >= 10.0 & ADMIT3 = True (Size = 375), Quality (100-AAM): 80.0438, Quality (AAM): 19.9562
+Description: ADMIT1 = False & BPDIA >= 142.0 (Size = 651), Quality (100-AAM): 80.2780, Quality (AAM): 19.7220
+Description: ADMIT3 = True & LAPS2 >= 145.0 (Size = 2224), Quality (100-AAM): 82.0318, Quality (AAM): 17.9682
+
+### These 10 subgroups were generated based on the condition "ADMIT1 = True" ###
+Description: ADMIT1 = True & RSPRT <= 9.0 (Size = 501), Quality (100-AAM): 88.5103, Quality (AAM): 11.4897
+Description: ADMIT1 = True & LAPS2 >= 118.0 (Size = 1010), Quality (100-AAM): 90.3486, Quality (AAM): 9.6514
+Description: ACT >= 5.4 & ADMIT1 = True (Size = 453), Quality (100-AAM): 90.7415, Quality (AAM): 9.2585
+Description: ADMIT1 = True & BPSYS_I >= 114.0 (Size = 819), Quality (100-AAM): 91.2202, Quality (AAM): 8.7798
+Description: ACT >= 5.2 & ADMIT1 = True (Size = 560), Quality (100-AAM): 91.7733, Quality (AAM): 8.2267
+Description: ADMIT1 = True & PML >= 747.1264367816093 (Size = 323), Quality (100-AAM): 93.0479, Quality (AAM): 6.9521
+Description: ADMIT1 = True & RSPRT_W <= 6.0 (Size = 870), Quality (100-AAM): 93.1460, Quality (AAM): 6.8540
+Description: ADMIT1 = True & HRTRT <= 32.0 (Size = 385), Quality (100-AAM): 93.4486, Quality (AAM): 6.5514
+Description: ADMIT1 = True & RSPRT_W >= 36.0 (Size = 1913), Quality (100-AAM): 94.5044, Quality (AAM): 5.4956
+Description: ADMIT1 = True & RSPRT_I >= 3.332204510175204 (Size = 470), Quality (100-AAM): 94.5238, Quality (AAM): 5.4762
+
+### These 10 subgroups were generated based on the condition "ADMIT2 = False" ###
+Description: ADMIT2 = False & BPDIA >= 159.0 (Size = 310), Quality (100-AAM): 72.9466, Quality (AAM): 27.0534
+Description: ADMIT2 = False & LAPS2 >= 162.0 (Size = 765), Quality (100-AAM): 74.8486, Quality (AAM): 25.1514
+Description: ADMIT4 = True & LAPS2 >= 146.0 (Size = 282), Quality (100-AAM): 77.7416, Quality (AAM): 22.2584
+Description: ACT >= 10.0 & ADMIT3 = True (Size = 375), Quality (100-AAM): 80.0438, Quality (AAM): 19.9562
+Description: ADMIT3 = True & LAPS2 >= 145.0 (Size = 2224), Quality (100-AAM): 82.0318, Quality (AAM): 17.9682
+Description: ADMIT2 = False & BPDIA >= 135.0 (Size = 1071), Quality (100-AAM): 85.2685, Quality (AAM): 14.7315
+Description: ACT >= 7.8 & ADMIT3 = True (Size = 1043), Quality (100-AAM): 86.8047, Quality (AAM): 13.1953
+Description: ADMIT4 = True & LAPS2 >= 120.0 (Size = 1349), Quality (100-AAM): 87.4495, Quality (AAM): 12.5505
+Description: ADMIT2 = False & HRTRT >= 167.0 (Size = 1854), Quality (100-AAM): 87.9063, Quality (AAM): 12.0937
+Description: ACT >= 7.7 & ADMIT2 = False (Size = 1640), Quality (100-AAM): 88.1329, Quality (AAM): 11.8671
+
+### These 10 subgroups were generated based on the condition "ADMIT2 = True" ###
+Description: ADMIT2 = True & BPSYS <= 54.0 (Size = 390), Quality (100-AAM): 41.6546, Quality (AAM): 58.3454
+Description: ADMIT2 = True & RSPRT <= 0.0 (Size = 840), Quality (100-AAM): 67.1073, Quality (AAM): 32.8927
+Description: ADMIT2 = True & RSPRT <= 3.0 (Size = 986), Quality (100-AAM): 70.3692, Quality (AAM): 29.6308
+Description: ADMIT2 = True & BPSYS <= 76.0 (Size = 1798), Quality (100-AAM): 83.9864, Quality (AAM): 16.0136
+Description: ADMIT2 = True & SHOCK >= 1.4375 (Size = 2998), Quality (100-AAM): 87.3562, Quality (AAM): 12.6438
+Description: ADMIT2 = True & RSPRT >= 38.0 (Size = 277), Quality (100-AAM): 89.9936, Quality (AAM): 10.0064
+Description: ADMIT2 = True & LAPS2 >= 124.0 (Size = 761), Quality (100-AAM): 92.3485, Quality (AAM): 7.6515
+Description: ADMIT2 = True & BPSYS_I >= 117.0 (Size = 1421), Quality (100-AAM): 92.7642, Quality (AAM): 7.2358
+Description: ADMIT2 = True & TEMP_I >= 7.299999999999998 (Size = 358), Quality (100-AAM): 95.5427, Quality (AAM): 4.4573
+Description: ADMIT2 = True & HRTRT >= 148.0 (Size = 5982), Quality (100-AAM): 95.6195, Quality (AAM): 4.3805
+
+### These 10 subgroups were generated based on the condition "ADMIT3 = True" ###
+Description: ACT >= 10.0 & ADMIT3 = True (Size = 375), Quality (100-AAM): 80.0438, Quality (AAM): 19.9562
+Description: ADMIT3 = True & LAPS2 >= 145.0 (Size = 2224), Quality (100-AAM): 82.0318, Quality (AAM): 17.9682
+Description: ACT >= 7.8 & ADMIT3 = True (Size = 1043), Quality (100-AAM): 86.8047, Quality (AAM): 13.1953
+Description: ADMIT3 = True & BPSYS_I >= 131.0 (Size = 2500), Quality (100-AAM): 91.6242, Quality (AAM): 8.3758
+Description: ACT >= 5.1 & ADMIT3 = True (Size = 4207), Quality (100-AAM): 92.3864, Quality (AAM): 7.6136
+Description: ADMIT3 = True & RSPRT >= 30.0 (Size = 35645), Quality (100-AAM): 93.2050, Quality (AAM): 6.7950
+Description: ADMIT3 = True & BPSYS_I >= 120.0 (Size = 4753), Quality (100-AAM): 93.2864, Quality (AAM): 6.7136
+Description: ADMIT3 = True & ANIONGAP >= 18.0 (Size = 1494), Quality (100-AAM): 93.6531, Quality (AAM): 6.3469
+Description: ADMIT3 = True & LAPS2 >= 102.0 (Size = 53611), Quality (100-AAM): 94.3612, Quality (AAM): 5.6388
+Description: ACT >= 3.6 & ADMIT3 = True (Size = 11005), Quality (100-AAM): 94.5538, Quality (AAM): 5.4462
+
+### These 10 subgroups were generated based on the condition "ADMIT3 = False" ###
+Description: ADMIT2 = True & BPSYS <= 54.0 (Size = 390), Quality (100-AAM): 41.6546, Quality (AAM): 58.3454
+Description: ADMIT2 = True & RSPRT <= 0.0 (Size = 840), Quality (100-AAM): 67.1073, Quality (AAM): 32.8927
+Description: ADMIT2 = True & RSPRT <= 3.0 (Size = 986), Quality (100-AAM): 70.3692, Quality (AAM): 29.6308
+Description: ADMIT4 = True & LAPS2 >= 146.0 (Size = 282), Quality (100-AAM): 77.7416, Quality (AAM): 22.2584
+Description: ADMIT3 = False & RSPRT <= 7.0 (Size = 2194), Quality (100-AAM): 78.9176, Quality (AAM): 21.0824
+Description: ADMIT2 = True & BPSYS <= 76.0 (Size = 1798), Quality (100-AAM): 83.9864, Quality (AAM): 16.0136
+Description: ADMIT3 = False & BPSYS <= 75.0 (Size = 4703), Quality (100-AAM): 85.7542, Quality (AAM): 14.2458
+Description: ADMIT2 = True & SHOCK >= 1.4375 (Size = 2998), Quality (100-AAM): 87.3562, Quality (AAM): 12.6438
+Description: ADMIT4 = True & LAPS2 >= 120.0 (Size = 1349), Quality (100-AAM): 87.4495, Quality (AAM): 12.5505
+Description: ADMIT1 = True & RSPRT <= 9.0 (Size = 501), Quality (100-AAM): 88.5103, Quality (AAM): 11.4897
+
+### These 10 subgroups were generated based on the condition "ADMIT4 = False" ###
+Description: ADMIT4 = False & SHOCK >= 2.6666666666666665 (Size = 1320), Quality (100-AAM): 37.9870, Quality (AAM): 62.0130
+Description: ADMIT2 = True & BPSYS <= 54.0 (Size = 390), Quality (100-AAM): 41.6546, Quality (AAM): 58.3454
+Description: ADMIT4 = False & BPSYS <= 59.0 (Size = 2538), Quality (100-AAM): 58.3651, Quality (AAM): 41.6349
+Description: ADMIT2 = True & RSPRT <= 0.0 (Size = 840), Quality (100-AAM): 67.1073, Quality (AAM): 32.8927
+Description: ADMIT2 = True & RSPRT <= 3.0 (Size = 986), Quality (100-AAM): 70.3692, Quality (AAM): 29.6308
+Description: ADMIT4 = False & LAPS2 >= 153.0 (Size = 1348), Quality (100-AAM): 79.1103, Quality (AAM): 20.8897
+Description: ACT >= 10.0 & ADMIT3 = True (Size = 375), Quality (100-AAM): 80.0438, Quality (AAM): 19.9562
+Description: ADMIT3 = True & LAPS2 >= 145.0 (Size = 2224), Quality (100-AAM): 82.0318, Quality (AAM): 17.9682
+Description: ADMIT4 = False & BPDIA >= 136.0 (Size = 1017), Quality (100-AAM): 82.9351, Quality (AAM): 17.0649
+Description: ADMIT2 = True & BPSYS <= 76.0 (Size = 1798), Quality (100-AAM): 83.9864, Quality (AAM): 16.0136
+
+### These 10 subgroups were generated based on the condition "ADMIT4 = True" ###
+Description: ADMIT4 = True & LAPS2 >= 146.0 (Size = 282), Quality (100-AAM): 77.7416, Quality (AAM): 22.2584
+Description: ADMIT4 = True & LAPS2 >= 120.0 (Size = 1349), Quality (100-AAM): 87.4495, Quality (AAM): 12.5505
+Description: ACT >= 7.4 & ADMIT4 = True (Size = 411), Quality (100-AAM): 88.9735, Quality (AAM): 11.0265
+Description: ACT >= 6.1 & ADMIT4 = True (Size = 546), Quality (100-AAM): 89.7640, Quality (AAM): 10.2360
+Description: ADMIT4 = True & HRTRT >= 148.0 (Size = 1290), Quality (100-AAM): 93.4796, Quality (AAM): 6.5204
+Description: ADMIT4 = True & RSPRT_W <= 1.0 (Size = 1058), Quality (100-AAM): 93.7313, Quality (AAM): 6.2687
+Description: ADMIT4 = True & RSPRT_W <= 4.0 (Size = 1096), Quality (100-AAM): 93.8961, Quality (AAM): 6.1039
+Description: ADMIT4 = True & HRTRT_I >= 114.99999999999999 (Size = 651), Quality (100-AAM): 94.2127, Quality (AAM): 5.7873
+Description: ADMIT4 = True & RSPRT_I >= 3.295836866004329 (Size = 1160), Quality (100-AAM): 94.6540, Quality (AAM): 5.3460
+Description: ADMIT4 = True & PML >= 609.1370558375635 (Size = 1805), Quality (100-AAM): 94.8974, Quality (AAM): 5.1026
+
+### These 10 subgroups were generated based on the condition "SEASON1 = False" ###
+Description: BPSYS <= 15.0 & SEASON3 = True (Size = 329), Quality (100-AAM): 30.4625, Quality (AAM): 69.5375
+Description: BPSYS <= 16.0 & SEASON2 = True (Size = 387), Quality (100-AAM): 36.3115, Quality (AAM): 63.6885
+Description: BPSYS <= 56.0 & SEASON2 = True (Size = 763), Quality (100-AAM): 50.6185, Quality (AAM): 49.3815
+Description: SEASON1 = False & SHOCK >= 1.7894736842105263 (Size = 1770), Quality (100-AAM): 58.5204, Quality (AAM): 41.4796
+Description: RSPRT <= 4.0 & SEASON2 = True (Size = 1034), Quality (100-AAM): 73.6184, Quality (AAM): 26.3816
+Description: RSPRT <= 6.0 & SEASON3 = True (Size = 976), Quality (100-AAM): 76.2245, Quality (AAM): 23.7755
+Description: LAPS2 >= 151.0 & SEASON1 = False (Size = 1119), Quality (100-AAM): 81.1582, Quality (AAM): 18.8418
+Description: LAPS2 >= 145.0 & SEASON2 = True (Size = 1067), Quality (100-AAM): 83.1363, Quality (AAM): 16.8637
+Description: ACT >= 7.7 & SEASON2 = True (Size = 484), Quality (100-AAM): 87.5557, Quality (AAM): 12.4443
+Description: BICARB <= 11.0 & SEASON2 = True (Size = 301), Quality (100-AAM): 88.2571, Quality (AAM): 11.7429
+
+### These 10 subgroups were generated based on the condition "SEASON1 = True" ###
+Description: LAPS2 >= 152.0 & SEASON1 = True (Size = 580), Quality (100-AAM): 73.5164, Quality (AAM): 26.4836
+Description: RSPRT <= 7.0 & SEASON1 = True (Size = 1358), Quality (100-AAM): 78.3335, Quality (AAM): 21.6665
+Description: RSPRT >= 38.0 & SEASON1 = True (Size = 2966), Quality (100-AAM): 90.7031, Quality (AAM): 9.2969
+Description: RSPRT <= 9.0 & SEASON1 = True (Size = 3547), Quality (100-AAM): 91.1116, Quality (AAM): 8.8884
+Description: ACT >= 5.9 & SEASON1 = True (Size = 1662), Quality (100-AAM): 91.9317, Quality (AAM): 8.0683
+Description: HRTRT >= 175.0 & SEASON1 = True (Size = 556), Quality (100-AAM): 91.9703, Quality (AAM): 8.0297
+Description: RSPRT_I >= 3.6375861597263857 & SEASON1 = True (Size = 449), Quality (100-AAM): 91.9988, Quality (AAM): 8.0012
+Description: BPSYS <= 80.0 & SEASON1 = True (Size = 10762), Quality (100-AAM): 92.4906, Quality (AAM): 7.5094
+Description: ANIONGAP >= 17.0 & SEASON1 = True (Size = 1164), Quality (100-AAM): 92.7538, Quality (AAM): 7.2462
+Description: ACT >= 4.0 & SEASON1 = True (Size = 5234), Quality (100-AAM): 94.5712, Quality (AAM): 5.4288
+
+### These 10 subgroups were generated based on the condition "SEASON2 = False" ###
+Description: BPSYS <= 15.0 & SEASON3 = True (Size = 329), Quality (100-AAM): 30.4625, Quality (AAM): 69.5375
+Description: SEASON2 = False & SHOCK >= 1.7027027027027026 (Size = 2712), Quality (100-AAM): 67.5559, Quality (AAM): 32.4441
+Description: LAPS2 >= 152.0 & SEASON1 = True (Size = 580), Quality (100-AAM): 73.5164, Quality (AAM): 26.4836
+Description: RSPRT <= 6.0 & SEASON3 = True (Size = 976), Quality (100-AAM): 76.2245, Quality (AAM): 23.7755
+Description: SEASON2 = False & SHOCK >= 1.5777777777777777 (Size = 4381), Quality (100-AAM): 77.0277, Quality (AAM): 22.9723
+Description: RSPRT <= 7.0 & SEASON1 = True (Size = 1358), Quality (100-AAM): 78.3335, Quality (AAM): 21.6665
+Description: SEASON2 = False & SHOCK >= 1.4745762711864407 (Size = 7198), Quality (100-AAM): 83.6423, Quality (AAM): 16.3577
+Description: RSPRT <= 8.0 & SEASON2 = False (Size = 3604), Quality (100-AAM): 84.8622, Quality (AAM): 15.1378
+Description: ACT >= 6.8 & SEASON3 = True (Size = 787), Quality (100-AAM): 90.1216, Quality (AAM): 9.8784
+Description: RSPRT <= 9.0 & SEASON2 = False (Size = 5785), Quality (100-AAM): 90.2662, Quality (AAM): 9.7338
+
+### These 10 subgroups were generated based on the condition "SEASON2 = True" ###
+Description: BPSYS <= 16.0 & SEASON2 = True (Size = 387), Quality (100-AAM): 36.3115, Quality (AAM): 63.6885
+Description: BPSYS <= 56.0 & SEASON2 = True (Size = 763), Quality (100-AAM): 50.6185, Quality (AAM): 49.3815
+Description: RSPRT <= 4.0 & SEASON2 = True (Size = 1034), Quality (100-AAM): 73.6184, Quality (AAM): 26.3816
+Description: LAPS2 >= 145.0 & SEASON2 = True (Size = 1067), Quality (100-AAM): 83.1363, Quality (AAM): 16.8637
+Description: ACT >= 7.7 & SEASON2 = True (Size = 484), Quality (100-AAM): 87.5557, Quality (AAM): 12.4443
+Description: BICARB <= 11.0 & SEASON2 = True (Size = 301), Quality (100-AAM): 88.2571, Quality (AAM): 11.7429
+Description: ACT >= 5.9 & SEASON2 = True (Size = 1202), Quality (100-AAM): 89.6072, Quality (AAM): 10.3928
+Description: BPSYS_I >= 129.0 & SEASON2 = True (Size = 1451), Quality (100-AAM): 91.6574, Quality (AAM): 8.3426
+Description: RSPRT >= 31.0 & SEASON2 = True (Size = 11011), Quality (100-AAM): 92.2743, Quality (AAM): 7.7257
+Description: BPSYS_I >= 117.0 & SEASON2 = True (Size = 2909), Quality (100-AAM): 93.3059, Quality (AAM): 6.6941
+
+### These 10 subgroups were generated based on the condition "SEASON3 = True" ###
+Description: BPSYS <= 15.0 & SEASON3 = True (Size = 329), Quality (100-AAM): 30.4625, Quality (AAM): 69.5375
+Description: RSPRT <= 6.0 & SEASON3 = True (Size = 976), Quality (100-AAM): 76.2245, Quality (AAM): 23.7755
+Description: ACT >= 6.8 & SEASON3 = True (Size = 787), Quality (100-AAM): 90.1216, Quality (AAM): 9.8784
+Description: SEASON3 = True & SHOCK >= 1.3333333333333333 (Size = 6807), Quality (100-AAM): 90.3077, Quality (AAM): 9.6923
+Description: ACT >= 7.7 & SEASON3 = True (Size = 632), Quality (100-AAM): 90.4664, Quality (AAM): 9.5336
+Description: RSPRT >= 38.0 & SEASON3 = True (Size = 2140), Quality (100-AAM): 91.8784, Quality (AAM): 8.1216
+Description: HRTRT >= 154.0 & SEASON3 = True (Size = 3202), Quality (100-AAM): 93.3919, Quality (AAM): 6.6081
+Description: BPSYS_I >= 142.0 & SEASON3 = True (Size = 634), Quality (100-AAM): 94.3248, Quality (AAM): 5.6752
+Description: SEASON3 = True & TEMP >= 40.1 (Size = 1262), Quality (100-AAM): 94.3251, Quality (AAM): 5.6749
+Description: SAT <= 74.0 & SEASON3 = True (Size = 1257), Quality (100-AAM): 94.9775, Quality (AAM): 5.0225
+
+### These 10 subgroups were generated based on the condition "SEASON3 = False" ###
+Description: BPSYS <= 16.0 & SEASON2 = True (Size = 387), Quality (100-AAM): 36.3115, Quality (AAM): 63.6885
+Description: BPSYS <= 56.0 & SEASON2 = True (Size = 763), Quality (100-AAM): 50.6185, Quality (AAM): 49.3815
+Description: BPDIA >= 159.0 & SEASON3 = False (Size = 294), Quality (100-AAM): 69.7798, Quality (AAM): 30.2202
+Description: LAPS2 >= 152.0 & SEASON1 = True (Size = 580), Quality (100-AAM): 73.5164, Quality (AAM): 26.4836
+Description: RSPRT <= 4.0 & SEASON2 = True (Size = 1034), Quality (100-AAM): 73.6184, Quality (AAM): 26.3816
+Description: RSPRT <= 7.0 & SEASON1 = True (Size = 1358), Quality (100-AAM): 78.3335, Quality (AAM): 21.6665
+Description: LAPS2 >= 145.0 & SEASON3 = False (Size = 2014), Quality (100-AAM): 81.1529, Quality (AAM): 18.8471
+Description: BPSYS <= 72.0 & SEASON3 = False (Size = 6726), Quality (100-AAM): 83.1227, Quality (AAM): 16.8773
+Description: LAPS2 >= 145.0 & SEASON2 = True (Size = 1067), Quality (100-AAM): 83.1363, Quality (AAM): 16.8637
+Description: BPDIA >= 130.0 & SEASON3 = False (Size = 1332), Quality (100-AAM): 84.6936, Quality (AAM): 15.3064
+
+### These 10 subgroups were generated based on the condition "DAYTIME1 = False" ###
+Description: BPSYS <= 53.0 & DAYTIME3 = True (Size = 462), Quality (100-AAM): 48.7575, Quality (AAM): 51.2425
+Description: DAYTIME3 = True & RSPRT <= 0.0 (Size = 425), Quality (100-AAM): 65.9333, Quality (AAM): 34.0667
+Description: DAYTIME2 = True & RSPRT <= 5.0 (Size = 669), Quality (100-AAM): 70.3975, Quality (AAM): 29.6025
+Description: DAYTIME1 = False & LAPS2 >= 167.0 (Size = 430), Quality (100-AAM): 70.4584, Quality (AAM): 29.5416
+Description: BPSYS <= 67.0 & DAYTIME3 = True (Size = 1306), Quality (100-AAM): 76.0524, Quality (AAM): 23.9476
+Description: DAYTIME4 = True & RSPRT <= 4.0 (Size = 775), Quality (100-AAM): 77.8599, Quality (AAM): 22.1401
+Description: ACT >= 9.4 & DAYTIME1 = False (Size = 432), Quality (100-AAM): 82.0974, Quality (AAM): 17.9026
+Description: BPDIA >= 133.0 & DAYTIME1 = False (Size = 1141), Quality (100-AAM): 86.6240, Quality (AAM): 13.3760
+Description: ACT >= 7.7 & DAYTIME4 = True (Size = 469), Quality (100-AAM): 88.8563, Quality (AAM): 11.1437
+Description: BPDIA >= 130.0 & DAYTIME2 = True (Size = 533), Quality (100-AAM): 89.0019, Quality (AAM): 10.9981
+
+### These 10 subgroups were generated based on the condition "DAYTIME1 = True" ###
+Description: DAYTIME1 = True & RSPRT <= 3.0 (Size = 850), Quality (100-AAM): 70.6950, Quality (AAM): 29.3050
+Description: DAYTIME1 = True & LAPS2 >= 141.0 (Size = 889), Quality (100-AAM): 83.4489, Quality (AAM): 16.5511
+Description: BPDIA >= 132.0 & DAYTIME1 = True (Size = 310), Quality (100-AAM): 83.5883, Quality (AAM): 16.4117
+Description: BPDIA >= 129.0 & DAYTIME1 = True (Size = 393), Quality (100-AAM): 85.5970, Quality (AAM): 14.4030
+Description: BPDIA >= 127.0 & DAYTIME1 = True (Size = 471), Quality (100-AAM): 87.4442, Quality (AAM): 12.5558
+Description: ACT >= 7.5 & DAYTIME1 = True (Size = 527), Quality (100-AAM): 89.2672, Quality (AAM): 10.7328
+Description: ACT >= 6.7 & DAYTIME1 = True (Size = 679), Quality (100-AAM): 89.3826, Quality (AAM): 10.6174
+Description: DAYTIME1 = True & PML >= 1084.3373493975903 (Size = 587), Quality (100-AAM): 91.7389, Quality (AAM): 8.2611
+Description: DAYTIME1 = True & RSPRT_I >= 3.58351893845611 (Size = 407), Quality (100-AAM): 93.6016, Quality (AAM): 6.3984
+Description: BPSYS_I >= 141.0 & DAYTIME1 = True (Size = 521), Quality (100-AAM): 93.9538, Quality (AAM): 6.0462
+
+### These 10 subgroups were generated based on the condition "DAYTIME2 = True" ###
+Description: DAYTIME2 = True & RSPRT <= 5.0 (Size = 669), Quality (100-AAM): 70.3975, Quality (AAM): 29.6025
+Description: BPDIA >= 130.0 & DAYTIME2 = True (Size = 533), Quality (100-AAM): 89.0019, Quality (AAM): 10.9981
+Description: ACT >= 6.1 & DAYTIME2 = True (Size = 860), Quality (100-AAM): 89.6337, Quality (AAM): 10.3663
+Description: DAYTIME2 = True & RSPRT >= 30.0 (Size = 10272), Quality (100-AAM): 91.4090, Quality (AAM): 8.5910
+Description: BPSYS_I >= 149.0 & DAYTIME2 = True (Size = 347), Quality (100-AAM): 91.4485, Quality (AAM): 8.5515
+Description: DAYTIME2 = True & HRTRT >= 156.0 (Size = 2535), Quality (100-AAM): 91.6712, Quality (AAM): 8.3288
+Description: ACT >= 5.3 & DAYTIME2 = True (Size = 1533), Quality (100-AAM): 91.7385, Quality (AAM): 8.2615
+Description: DAYTIME2 = True & TEMP >= 40.20000000000001 (Size = 978), Quality (100-AAM): 92.7388, Quality (AAM): 7.2612
+Description: DAYTIME2 = True & RSPRT_W >= 41.0 (Size = 2584), Quality (100-AAM): 93.6369, Quality (AAM): 6.3631
+Description: DAYTIME2 = True & RSPRT >= 44.0 (Size = 562), Quality (100-AAM): 94.0752, Quality (AAM): 5.9248
+
+### These 10 subgroups were generated based on the condition "DAYTIME2 = False" ###
+Description: BPSYS <= 36.0 & DAYTIME2 = False (Size = 1046), Quality (100-AAM): 36.8592, Quality (AAM): 63.1408
+Description: BPSYS <= 53.0 & DAYTIME3 = True (Size = 462), Quality (100-AAM): 48.7575, Quality (AAM): 51.2425
+Description: DAYTIME3 = True & RSPRT <= 0.0 (Size = 425), Quality (100-AAM): 65.9333, Quality (AAM): 34.0667
+Description: DAYTIME1 = True & RSPRT <= 3.0 (Size = 850), Quality (100-AAM): 70.6950, Quality (AAM): 29.3050
+Description: BPSYS <= 67.0 & DAYTIME3 = True (Size = 1306), Quality (100-AAM): 76.0524, Quality (AAM): 23.9476
+Description: DAYTIME2 = False & LAPS2 >= 162.0 (Size = 576), Quality (100-AAM): 76.3597, Quality (AAM): 23.6403
+Description: DAYTIME4 = True & RSPRT <= 4.0 (Size = 775), Quality (100-AAM): 77.8599, Quality (AAM): 22.1401
+Description: ACT >= 9.4 & DAYTIME2 = False (Size = 472), Quality (100-AAM): 82.5437, Quality (AAM): 17.4563
+Description: DAYTIME1 = True & LAPS2 >= 141.0 (Size = 889), Quality (100-AAM): 83.4489, Quality (AAM): 16.5511
+Description: BPDIA >= 132.0 & DAYTIME1 = True (Size = 310), Quality (100-AAM): 83.5883, Quality (AAM): 16.4117
+
+### These 10 subgroups were generated based on the condition "DAYTIME3 = False" ###
+Description: DAYTIME2 = True & RSPRT <= 5.0 (Size = 669), Quality (100-AAM): 70.3975, Quality (AAM): 29.6025
+Description: DAYTIME1 = True & RSPRT <= 3.0 (Size = 850), Quality (100-AAM): 70.6950, Quality (AAM): 29.3050
+Description: DAYTIME3 = False & RSPRT <= 2.0 (Size = 2108), Quality (100-AAM): 71.1654, Quality (AAM): 28.8346
+Description: DAYTIME3 = False & LAPS2 >= 162.0 (Size = 544), Quality (100-AAM): 73.0043, Quality (AAM): 26.9957
+Description: DAYTIME4 = True & RSPRT <= 4.0 (Size = 775), Quality (100-AAM): 77.8599, Quality (AAM): 22.1401
+Description: DAYTIME1 = True & LAPS2 >= 141.0 (Size = 889), Quality (100-AAM): 83.4489, Quality (AAM): 16.5511
+Description: BPDIA >= 132.0 & DAYTIME1 = True (Size = 310), Quality (100-AAM): 83.5883, Quality (AAM): 16.4117
+Description: BPDIA >= 129.0 & DAYTIME1 = True (Size = 393), Quality (100-AAM): 85.5970, Quality (AAM): 14.4030
+Description: BPDIA >= 133.0 & DAYTIME3 = False (Size = 1034), Quality (100-AAM): 85.8200, Quality (AAM): 14.1800
+Description: BPDIA >= 127.0 & DAYTIME1 = True (Size = 471), Quality (100-AAM): 87.4442, Quality (AAM): 12.5558
+
+### These 10 subgroups were generated based on the condition "DAYTIME3 = True" ###
+Description: BPSYS <= 53.0 & DAYTIME3 = True (Size = 462), Quality (100-AAM): 48.7575, Quality (AAM): 51.2425
+Description: DAYTIME3 = True & RSPRT <= 0.0 (Size = 425), Quality (100-AAM): 65.9333, Quality (AAM): 34.0667
+Description: BPSYS <= 67.0 & DAYTIME3 = True (Size = 1306), Quality (100-AAM): 76.0524, Quality (AAM): 23.9476
+Description: DAYTIME3 = True & RSPRT >= 39.0 (Size = 1549), Quality (100-AAM): 91.1359, Quality (AAM): 8.8641
+Description: DAYTIME3 = True & RSPRT >= 30.0 (Size = 9812), Quality (100-AAM): 92.5190, Quality (AAM): 7.4810
+Description: ACT >= 5.2 & DAYTIME3 = True (Size = 1637), Quality (100-AAM): 92.7598, Quality (AAM): 7.2402
+Description: DAYTIME3 = True & TEMP <= 33.9 (Size = 368), Quality (100-AAM): 93.4500, Quality (AAM): 6.5500
+Description: ACT >= 4.6 & DAYTIME3 = True (Size = 2286), Quality (100-AAM): 93.8761, Quality (AAM): 6.1239
+Description: DAYTIME3 = True & HRTRT <= 10.0 (Size = 477), Quality (100-AAM): 94.1109, Quality (AAM): 5.8891
+Description: DAYTIME3 = True & RSPRT_I >= 3.5553480614894135 (Size = 628), Quality (100-AAM): 94.9405, Quality (AAM): 5.0595
+
+### These 10 subgroups were generated based on the condition "DAYTIME4 = False" ###
+Description: BPSYS <= 53.0 & DAYTIME3 = True (Size = 462), Quality (100-AAM): 48.7575, Quality (AAM): 51.2425
+Description: DAYTIME3 = True & RSPRT <= 0.0 (Size = 425), Quality (100-AAM): 65.9333, Quality (AAM): 34.0667
+Description: DAYTIME4 = False & LAPS2 >= 167.0 (Size = 398), Quality (100-AAM): 69.6390, Quality (AAM): 30.3610
+Description: DAYTIME2 = True & RSPRT <= 5.0 (Size = 669), Quality (100-AAM): 70.3975, Quality (AAM): 29.6025
+Description: DAYTIME1 = True & RSPRT <= 3.0 (Size = 850), Quality (100-AAM): 70.6950, Quality (AAM): 29.3050
+Description: BPDIA >= 147.0 & DAYTIME4 = False (Size = 439), Quality (100-AAM): 75.0823, Quality (AAM): 24.9177
+Description: BPSYS <= 67.0 & DAYTIME3 = True (Size = 1306), Quality (100-AAM): 76.0524, Quality (AAM): 23.9476
+Description: DAYTIME1 = True & LAPS2 >= 141.0 (Size = 889), Quality (100-AAM): 83.4489, Quality (AAM): 16.5511
+Description: BPDIA >= 132.0 & DAYTIME1 = True (Size = 310), Quality (100-AAM): 83.5883, Quality (AAM): 16.4117
+Description: DAYTIME4 = False & RSPRT <= 8.0 (Size = 3970), Quality (100-AAM): 83.6353, Quality (AAM): 16.3647
+
+### These 10 subgroups were generated based on the condition "DAYTIME4 = True" ###
+Description: DAYTIME4 = True & RSPRT <= 4.0 (Size = 775), Quality (100-AAM): 77.8599, Quality (AAM): 22.1401
+Description: ACT >= 7.7 & DAYTIME4 = True (Size = 469), Quality (100-AAM): 88.8563, Quality (AAM): 11.1437
+Description: DAYTIME4 = True & RSPRT >= 37.0 (Size = 1873), Quality (100-AAM): 92.4873, Quality (AAM): 7.5127
+Description: ACT >= 4.9 & DAYTIME4 = True (Size = 1910), Quality (100-AAM): 93.8555, Quality (AAM): 6.1445
+Description: ANIONGAP >= 19.0 & DAYTIME4 = True (Size = 372), Quality (100-AAM): 94.0179, Quality (AAM): 5.9821
+Description: DAYTIME4 = True & RSPRT >= 30.0 (Size = 10079), Quality (100-AAM): 94.3712, Quality (AAM): 5.6288
+Description: BPSYS_I >= 148.0 & DAYTIME4 = True (Size = 356), Quality (100-AAM): 94.6905, Quality (AAM): 5.3095
+Description: DAYTIME4 = True & LAPS2 >= 102.0 (Size = 17586), Quality (100-AAM): 95.3944, Quality (AAM): 4.6056
+Description: BPSYS_I >= 107.0 & DAYTIME4 = True (Size = 4126), Quality (100-AAM): 95.8288, Quality (AAM): 4.1712
+Description: DAYTIME4 = True & RSPRT_W >= 38.0 (Size = 6402), Quality (100-AAM): 95.9211, Quality (AAM): 4.0789
+
+### These 10 subgroups were generated based on the condition "CARE_ORDERDNR = False" ###
+Description: BPDIA >= 135.0 & CARE_ORDERFULL_CODE = True (Size = 744), Quality (100-AAM): 79.7352, Quality (AAM): 20.2648
+Description: BPDIA >= 135.0 & CARE_ORDERDNR = False (Size = 754), Quality (100-AAM): 79.9410, Quality (AAM): 20.0590
+Description: CARE_ORDERDNR = False & LAPS2 >= 145.0 (Size = 1083), Quality (100-AAM): 79.9430, Quality (AAM): 20.0570
+Description: CARE_ORDERFULL_CODE = True & LAPS2 >= 145.0 (Size = 1018), Quality (100-AAM): 80.4886, Quality (AAM): 19.5114
+Description: CARE_ORDERDNR = False & LAPS2 >= 137.0 (Size = 2071), Quality (100-AAM): 81.9967, Quality (AAM): 18.0033
+Description: CARE_ORDERFULL_CODE = True & LAPS2 >= 137.0 (Size = 1947), Quality (100-AAM): 82.4203, Quality (AAM): 17.5797
+Description: CARE_ORDERDNR = False & SHOCK >= 1.4591836734693877 (Size = 7638), Quality (100-AAM): 82.7158, Quality (AAM): 17.2842
+Description: CARE_ORDERDNR = False & RSPRT >= 36.0 (Size = 4922), Quality (100-AAM): 85.9602, Quality (AAM): 14.0398
+Description: CARE_ORDERFULL_CODE = True & RSPRT >= 36.0 (Size = 4737), Quality (100-AAM): 86.0155, Quality (AAM): 13.9845
+Description: CARE_ORDERFULL_CODE = True & RSPRT >= 33.0 (Size = 6537), Quality (100-AAM): 86.3887, Quality (AAM): 13.6113
+
+### These 10 subgroups were generated based on the condition "CARE_ORDERDNR = True" ###
+Description: BPSYS <= 51.0 & CARE_ORDERDNR = True (Size = 711), Quality (100-AAM): 55.3111, Quality (AAM): 44.6889
+Description: CARE_ORDERDNR = True & SHOCK >= 1.844155844155844 (Size = 952), Quality (100-AAM): 64.4794, Quality (AAM): 35.5206
+Description: CARE_ORDERDNR = True & RSPRT <= 0.0 (Size = 374), Quality (100-AAM): 78.8093, Quality (AAM): 21.1907
+Description: CARE_ORDERDNR = True & LAPS2 >= 152.0 (Size = 1108), Quality (100-AAM): 79.9499, Quality (AAM): 20.0501
+Description: CARE_ORDERDNR = True & HRTRT >= 167.0 (Size = 728), Quality (100-AAM): 88.4960, Quality (AAM): 11.5040
+Description: CARE_ORDERDNR = True & TEMP >= 40.5 (Size = 479), Quality (100-AAM): 90.8041, Quality (AAM): 9.1959
+Description: CARE_ORDERDNR = True & LAPS2 >= 128.0 (Size = 6093), Quality (100-AAM): 90.9471, Quality (AAM): 9.0529
+Description: CARE_ORDERDNR = True & LAPS2 >= 126.0 (Size = 6815), Quality (100-AAM): 91.4280, Quality (AAM): 8.5720
+Description: CARE_ORDERDNR = True & SHOCK >= 1.2869565217391303 (Size = 9719), Quality (100-AAM): 93.1778, Quality (AAM): 6.8222
+Description: CARE_ORDERDNR = True & RSPRT >= 37.0 (Size = 4756), Quality (100-AAM): 93.1815, Quality (AAM): 6.8185
+
+### These 10 subgroups were generated based on the condition "CARE_ORDERFULL_CODE = True" ###
+Description: BPDIA >= 135.0 & CARE_ORDERFULL_CODE = True (Size = 744), Quality (100-AAM): 79.7352, Quality (AAM): 20.2648
+Description: CARE_ORDERFULL_CODE = True & LAPS2 >= 145.0 (Size = 1018), Quality (100-AAM): 80.4886, Quality (AAM): 19.5114
+Description: CARE_ORDERFULL_CODE = True & LAPS2 >= 137.0 (Size = 1947), Quality (100-AAM): 82.4203, Quality (AAM): 17.5797
+Description: CARE_ORDERFULL_CODE = True & RSPRT >= 36.0 (Size = 4737), Quality (100-AAM): 86.0155, Quality (AAM): 13.9845
+Description: CARE_ORDERFULL_CODE = True & RSPRT >= 33.0 (Size = 6537), Quality (100-AAM): 86.3887, Quality (AAM): 13.6113
+Description: CARE_ORDERFULL_CODE = True & RSPRT >= 38.0 (Size = 2727), Quality (100-AAM): 86.9556, Quality (AAM): 13.0444
+Description: ACT >= 7.0 & CARE_ORDERFULL_CODE = True (Size = 1062), Quality (100-AAM): 87.9333, Quality (AAM): 12.0667
+Description: CARE_ORDERFULL_CODE = True & SHOCK <= 0.02586206896551724 (Size = 553), Quality (100-AAM): 89.2920, Quality (AAM): 10.7080
+Description: ACT >= 5.0 & CARE_ORDERFULL_CODE = True (Size = 4027), Quality (100-AAM): 92.7911, Quality (AAM): 7.2089
+Description: CARE_ORDERFULL_CODE = True & HRTRT <= 8.0 (Size = 1054), Quality (100-AAM): 93.0615, Quality (AAM): 6.9385
+
+### These 10 subgroups were generated based on the condition "CARE_ORDERFULL_CODE = False" ###
+Description: BPSYS <= 42.0 & CARE_ORDERFULL_CODE = False (Size = 563), Quality (100-AAM): 49.7072, Quality (AAM): 50.2928
+Description: BPSYS <= 51.0 & CARE_ORDERDNR = True (Size = 711), Quality (100-AAM): 55.3111, Quality (AAM): 44.6889
+Description: CARE_ORDERDNR = True & SHOCK >= 1.844155844155844 (Size = 952), Quality (100-AAM): 64.4794, Quality (AAM): 35.5206
+Description: CARE_ORDERFULL_CODE = False & SHOCK >= 1.734375 (Size = 1287), Quality (100-AAM): 69.0925, Quality (AAM): 30.9075
+Description: CARE_ORDERFULL_CODE = False & RSPRT <= 0.0 (Size = 392), Quality (100-AAM): 77.4035, Quality (AAM): 22.5965
+Description: CARE_ORDERDNR = True & RSPRT <= 0.0 (Size = 374), Quality (100-AAM): 78.8093, Quality (AAM): 21.1907
+Description: CARE_ORDERFULL_CODE = False & LAPS2 >= 155.0 (Size = 961), Quality (100-AAM): 79.0739, Quality (AAM): 20.9261
+Description: CARE_ORDERDNR = True & LAPS2 >= 152.0 (Size = 1108), Quality (100-AAM): 79.9499, Quality (AAM): 20.0501
+Description: CARE_ORDERDNR = True & HRTRT >= 167.0 (Size = 728), Quality (100-AAM): 88.4960, Quality (AAM): 11.5040
+Description: CARE_ORDERPARTIAL = True & LAPS2 >= 110.0 (Size = 720), Quality (100-AAM): 89.8560, Quality (AAM): 10.1440
+
+### These 10 subgroups were generated based on the condition "CARE_ORDERPARTIAL = False" ###
+Description: BPSYS <= 51.0 & CARE_ORDERDNR = True (Size = 711), Quality (100-AAM): 55.3111, Quality (AAM): 44.6889
+Description: CARE_ORDERPARTIAL = False & LAPS2 >= 170.0 (Size = 354), Quality (100-AAM): 61.9029, Quality (AAM): 38.0971
+Description: BPDIA >= 147.0 & LAPS2 >= 42.0 (Size = 277), Quality (100-AAM): 62.1120, Quality (AAM): 37.8880
+Description: CARE_ORDERDNR = True & SHOCK >= 1.844155844155844 (Size = 952), Quality (100-AAM): 64.4794, Quality (AAM): 35.5206
+Description: BPDIA >= 147.0 & BUN >= 4.6 (Size = 327), Quality (100-AAM): 68.7308, Quality (AAM): 31.2692
+Description: BPDIA >= 147.0 & LAPS2 >= 37.0 (Size = 346), Quality (100-AAM): 68.8238, Quality (AAM): 31.1762
+Description: BPDIA >= 147.0 & OXY_SUP = True (Size = 367), Quality (100-AAM): 68.9157, Quality (AAM): 31.0843
+Description: BPDIA >= 147.0 & TEMP >= 37.00000000000001 (Size = 303), Quality (100-AAM): 69.6069, Quality (AAM): 30.3931
+Description: BPDIA >= 147.0 & CARE_ORDERFULL_CODE = True (Size = 409), Quality (100-AAM): 69.6603, Quality (AAM): 30.3397
+Description: BPDIA >= 147.0 & CARE_ORDERDNR = False (Size = 409), Quality (100-AAM): 69.6603, Quality (AAM): 30.3397
+
+### These 10 subgroups were generated based on the condition "CARE_ORDERPARTIAL = True" ###
+Description: CARE_ORDERPARTIAL = True & LAPS2 >= 110.0 (Size = 720), Quality (100-AAM): 89.8560, Quality (AAM): 10.1440
+Description: CARE_ORDERPARTIAL = True & PML >= 613.4969325153374 (Size = 524), Quality (100-AAM): 92.2365, Quality (AAM): 7.7635
+Description: CARE_ORDERPARTIAL = True & RSPRT_W >= 40.0 (Size = 419), Quality (100-AAM): 93.2558, Quality (AAM): 6.7442
+Description: BICARB <= 19.3 & CARE_ORDERPARTIAL = True (Size = 831), Quality (100-AAM): 94.1607, Quality (AAM): 5.8393
+Description: CARE_ORDERPARTIAL = True & SAT <= 84.0 (Size = 291), Quality (100-AAM): 94.3431, Quality (AAM): 5.6569
+Description: CARE_ORDERPARTIAL = True & RSPRT >= 26.0 (Size = 1779), Quality (100-AAM): 94.7114, Quality (AAM): 5.2886
+Description: CARE_ORDERPARTIAL = True & RSPRT_I >= 3.1354942159291497 (Size = 675), Quality (100-AAM): 95.5620, Quality (AAM): 4.4380
+Description: CARE_ORDERPARTIAL = True & PML >= 516.4319248826291 (Size = 1066), Quality (100-AAM): 95.5918, Quality (AAM): 4.4082
+Description: CARE_ORDERPARTIAL = True & HRTRT >= 133.0 (Size = 708), Quality (100-AAM): 95.8505, Quality (AAM): 4.1495
+Description: CARE_ORDERPARTIAL = True & PML >= 493.8271604938272 (Size = 1232), Quality (100-AAM): 95.9884, Quality (AAM): 4.0116
+
+### These 10 subgroups were generated based on the condition "I_OR_ACUTE = False" ###
+Description: LAPS2 >= 170.0 & RSPRT_I >= 2.197224577336219 (Size = 285), Quality (100-AAM): 58.5660, Quality (AAM): 41.4340
+Description: LAPS2 >= 170.0 & RSPRT >= 22.0 (Size = 308), Quality (100-AAM): 58.9641, Quality (AAM): 41.0359
+Description: HEMAT >= 0.29 & LAPS2 >= 170.0 (Size = 327), Quality (100-AAM): 59.2738, Quality (AAM): 40.7262
+Description: LAPS2 >= 170.0 & TEMP_I >= 0.5999999999999943 (Size = 279), Quality (100-AAM): 59.6155, Quality (AAM): 40.3845
+Description: BPSYS <= 128.0 & LAPS2 >= 170.0 (Size = 296), Quality (100-AAM): 59.6518, Quality (AAM): 40.3482
+Description: ELOSLAPS2 <= 455.4162871493618 & LAPS2 >= 170.0 (Size = 317), Quality (100-AAM): 59.9300, Quality (AAM): 40.0700
+Description: BPSYS_I >= 18.0 & LAPS2 >= 170.0 (Size = 288), Quality (100-AAM): 59.9490, Quality (AAM): 40.0510
+Description: HEMAT >= 0.32 & LAPS2 >= 170.0 (Size = 278), Quality (100-AAM): 60.0407, Quality (AAM): 39.9593
+Description: ACT >= 1.2 & LAPS2 >= 170.0 (Size = 303), Quality (100-AAM): 60.1193, Quality (AAM): 39.8807
+Description: ELOSLAPS2 <= 334.02726640167225 & LAPS2 >= 170.0 (Size = 295), Quality (100-AAM): 60.3642, Quality (AAM): 39.6358
+
+### These 10 subgroups were generated based on the condition "I_OR_ACUTE = True" ###
+Description: I_OR_ACUTE = True & RSPRT_I >= 2.5649493574615367 (Size = 387), Quality (100-AAM): 96.4196, Quality (AAM): 3.5804
+Description: BICARB <= 24.8 & I_OR_ACUTE = True (Size = 414), Quality (100-AAM): 96.7924, Quality (AAM): 3.2076
+Description: I_OR_ACUTE = True & RSPRT >= 18.0 (Size = 864), Quality (100-AAM): 97.0644, Quality (AAM): 2.9356
+Description: GLUCOSE >= 9.3 & I_OR_ACUTE = True (Size = 406), Quality (100-AAM): 97.1549, Quality (AAM): 2.8451
+Description: I_OR_ACUTE = True & TROP >= 89.0 (Size = 487), Quality (100-AAM): 97.5114, Quality (AAM): 2.4886
+Description: I_OR_ACUTE = True & SAT_I >= 6.999999999999999 (Size = 472), Quality (100-AAM): 97.5944, Quality (AAM): 2.4056
+Description: I_OR_ACUTE = True & SAT_W <= 89.00000000000001 (Size = 310), Quality (100-AAM): 97.6703, Quality (AAM): 2.3297
+Description: HRTRT_I >= 35.99999999999999 & I_OR_ACUTE = True (Size = 656), Quality (100-AAM): 97.7617, Quality (AAM): 2.2383
+Description: I_OR_ACUTE = True & LAPS2 >= 56.0 (Size = 1348), Quality (100-AAM): 97.7784, Quality (AAM): 2.2216
+Description: I_OR_ACUTE = True & LAPS2_HET >= 45.0 (Size = 543), Quality (100-AAM): 98.0507, Quality (AAM): 1.9493
+
+### These 10 subgroups were generated based on the condition "I_OR_ELECTIVE = False" ###
+Description: HRTRT >= 147.0 & RSPRT >= 36.0 (Size = 333), Quality (100-AAM): 61.8368, Quality (AAM): 38.1632
+Description: I_OR_ELECTIVE = False & LAPS2 >= 170.0 (Size = 357), Quality (100-AAM): 61.9144, Quality (AAM): 38.0856
+Description: HRTRT_I >= 81.99999999999996 & RSPRT >= 36.0 (Size = 299), Quality (100-AAM): 71.0743, Quality (AAM): 28.9257
+Description: I_OR_ELECTIVE = False & RSPRT <= 2.0 (Size = 2645), Quality (100-AAM): 71.1830, Quality (AAM): 28.8170
+Description: ACT >= 4.0 & RSPRT >= 36.0 (Size = 295), Quality (100-AAM): 72.0107, Quality (AAM): 27.9893
+Description: ACT >= 8.6 & RSPRT >= 23.0 (Size = 309), Quality (100-AAM): 72.3297, Quality (AAM): 27.6703
+Description: ACT >= 8.6 & RSPRT_W >= 26.0 (Size = 352), Quality (100-AAM): 72.7665, Quality (AAM): 27.2335
+Description: ACT >= 8.6 & BICARB <= 13.8 (Size = 292), Quality (100-AAM): 73.6942, Quality (AAM): 26.3058
+Description: ACT >= 8.6 & BICARB <= 14.3 (Size = 318), Quality (100-AAM): 73.7429, Quality (AAM): 26.2571
+Description: ACT >= 8.6 & SAT <= 93.0 (Size = 280), Quality (100-AAM): 73.9304, Quality (AAM): 26.0696
+
+### These 10 subgroups were generated based on the condition "I_OR_ELECTIVE = True" ###
+Description: I_OR_ELECTIVE = True & RSPRT_I >= 1.9459101490553132 (Size = 361), Quality (100-AAM): 97.9038, Quality (AAM): 2.0962
+Description: HRTRT_I >= 35.99999999999999 & I_OR_ELECTIVE = True (Size = 345), Quality (100-AAM): 98.3015, Quality (AAM): 1.6985
+Description: HRTRT >= 107.0 & I_OR_ELECTIVE = True (Size = 548), Quality (100-AAM): 98.4423, Quality (AAM): 1.5577
+Description: I_OR_ELECTIVE = True & LAPS2 >= 63.0 (Size = 425), Quality (100-AAM): 98.5488, Quality (AAM): 1.4512
+Description: I_OR_ELECTIVE = True & SAT_I >= 5.999999999999999 (Size = 291), Quality (100-AAM): 98.6857, Quality (AAM): 1.3143
+Description: I_OR_ELECTIVE = True & RSPRT_W >= 18.0 (Size = 435), Quality (100-AAM): 98.7569, Quality (AAM): 1.2431
+Description: I_OR_ELECTIVE = True & TEMP_I >= 1.3999999999999984 (Size = 370), Quality (100-AAM): 98.8875, Quality (AAM): 1.1125
+Description: I_OR_ELECTIVE = True & LAPS2 >= 58.0 (Size = 634), Quality (100-AAM): 98.8903, Quality (AAM): 1.1097
+Description: ELOSLAPS2 >= 121.76042583961201 & I_OR_ELECTIVE = True (Size = 390), Quality (100-AAM): 98.9025, Quality (AAM): 1.0975
+Description: I_OR_ELECTIVE = True & LAPS2 >= 57.0 (Size = 699), Quality (100-AAM): 98.9575, Quality (AAM): 1.0425
+
+### These 10 subgroups were generated based on the condition "I_OR_UNKNOWN = False" ###
+Description: HRTRT_I >= 36.99999999999999 & RSPRT <= 2.0 (Size = 413), Quality (100-AAM): 49.2211, Quality (AAM): 50.7789
+Description: RSPRT <= 2.0 & RSPRT_W >= 21.0 (Size = 522), Quality (100-AAM): 51.3842, Quality (AAM): 48.6158
+Description: RSPRT <= 2.0 & RSPRT_I >= 3.0910424533583156 (Size = 674), Quality (100-AAM): 52.9491, Quality (AAM): 47.0509
+Description: RSPRT <= 2.0 & WBC >= 15.7 (Size = 277), Quality (100-AAM): 53.1831, Quality (AAM): 46.8169
+Description: MISS_TROP = False & RSPRT <= 2.0 (Size = 288), Quality (100-AAM): 53.4147, Quality (AAM): 46.5853
+Description: PML >= 381.35593220338984 & RSPRT <= 2.0 (Size = 332), Quality (100-AAM): 53.8441, Quality (AAM): 46.1559
+Description: ACT >= 1.3 & RSPRT <= 2.0 (Size = 576), Quality (100-AAM): 53.9296, Quality (AAM): 46.0704
+Description: PML >= 341.88034188034186 & RSPRT <= 2.0 (Size = 457), Quality (100-AAM): 54.5643, Quality (AAM): 45.4357
+Description: RSPRT <= 2.0 & TEMP_I >= 1.6000000000000014 (Size = 472), Quality (100-AAM): 54.9789, Quality (AAM): 45.0211
+Description: HEMAT >= 0.38 & RSPRT <= 2.0 (Size = 436), Quality (100-AAM): 55.2031, Quality (AAM): 44.7969
+
+### These 10 subgroups were generated based on the condition "I_OR_UNKNOWN = True" ###
+Description: I_OR_UNKNOWN = True & SHOCK >= 0.7291666666666666 (Size = 670), Quality (100-AAM): 98.1604, Quality (AAM): 1.8396
+Description: ELOSLAPS2 <= -30.459910976876934 & I_OR_UNKNOWN = True (Size = 808), Quality (100-AAM): 98.4478, Quality (AAM): 1.5522
+Description: I_OR_UNKNOWN = True & WBC >= 9.4 (Size = 306), Quality (100-AAM): 98.5027, Quality (AAM): 1.4973
+Description: HRTRT_I >= 29.000000000000004 & I_OR_UNKNOWN = True (Size = 444), Quality (100-AAM): 98.6521, Quality (AAM): 1.3479
+Description: BUN >= 9.7 & I_OR_UNKNOWN = True (Size = 304), Quality (100-AAM): 98.7196, Quality (AAM): 1.2804
+Description: I_OR_UNKNOWN = True & RSPRT >= 16.0 (Size = 436), Quality (100-AAM): 98.7227, Quality (AAM): 1.2773
+Description: I_OR_UNKNOWN = True & SHOCK >= 0.7075471698113207 (Size = 1252), Quality (100-AAM): 98.7955, Quality (AAM): 1.2045
+Description: I_OR_UNKNOWN = True & RSPRT_W >= 17.0 (Size = 549), Quality (100-AAM): 98.8196, Quality (AAM): 1.1804
+Description: BPDIA <= 57.0 & I_OR_UNKNOWN = True (Size = 333), Quality (100-AAM): 98.8327, Quality (AAM): 1.1673
+Description: I_OR_UNKNOWN = True & WBC >= 7.9 (Size = 529), Quality (100-AAM): 98.8728, Quality (AAM): 1.1272
+
+### These 10 subgroups were generated based on the condition "I_IC = False" ###
+Description: LAPS2 >= 170.0 & RSPRT_I >= 2.197224577336219 (Size = 285), Quality (100-AAM): 58.5660, Quality (AAM): 41.4340
+Description: LAPS2 >= 170.0 & RSPRT >= 22.0 (Size = 308), Quality (100-AAM): 58.9641, Quality (AAM): 41.0359
+Description: HEMAT >= 0.29 & LAPS2 >= 170.0 (Size = 327), Quality (100-AAM): 59.2738, Quality (AAM): 40.7262
+Description: LAPS2 >= 170.0 & TEMP_I >= 0.5999999999999943 (Size = 279), Quality (100-AAM): 59.6155, Quality (AAM): 40.3845
+Description: BPSYS <= 128.0 & LAPS2 >= 170.0 (Size = 296), Quality (100-AAM): 59.6518, Quality (AAM): 40.3482
+Description: ELOSLAPS2 <= 455.4162871493618 & LAPS2 >= 170.0 (Size = 317), Quality (100-AAM): 59.9300, Quality (AAM): 40.0700
+Description: BPSYS_I >= 18.0 & LAPS2 >= 170.0 (Size = 288), Quality (100-AAM): 59.9490, Quality (AAM): 40.0510
+Description: HEMAT >= 0.32 & LAPS2 >= 170.0 (Size = 278), Quality (100-AAM): 60.0407, Quality (AAM): 39.9593
+Description: ACT >= 1.2 & LAPS2 >= 170.0 (Size = 303), Quality (100-AAM): 60.1193, Quality (AAM): 39.8807
+Description: ELOSLAPS2 <= 334.02726640167225 & LAPS2 >= 170.0 (Size = 295), Quality (100-AAM): 60.3642, Quality (AAM): 39.6358
+
+### These 10 subgroups were generated based on the condition "I_IC = True" ###
+Description: ELOSLAPS2 >= 12.942325976224165 & I_IC = True (Size = 286), Quality (100-AAM): 96.6183, Quality (AAM): 3.3817
+Description: I_IC = True & SEASON1 = True (Size = 298), Quality (100-AAM): 96.6686, Quality (AAM): 3.3314
+Description: HRTRT >= 88.0 & I_IC = True (Size = 275), Quality (100-AAM): 96.7487, Quality (AAM): 3.2513
+Description: I_IC = True & LAPS2 >= 27.0 (Size = 438), Quality (100-AAM): 96.8124, Quality (AAM): 3.1876
+Description: BUN >= 4.0 & I_IC = True (Size = 305), Quality (100-AAM): 96.8788, Quality (AAM): 3.1212
+Description: ELOS >= 1.125 & I_IC = True (Size = 320), Quality (100-AAM): 96.9200, Quality (AAM): 3.0800
+Description: I_IC = True & RSPRT_I >= 1.6094379124341003 (Size = 407), Quality (100-AAM): 97.0174, Quality (AAM): 2.9826
+Description: HRTRT_I >= 11.000000000000002 & I_IC = True (Size = 396), Quality (100-AAM): 97.0496, Quality (AAM): 2.9504
+Description: I_IC = True & RSPRT >= 17.0 (Size = 331), Quality (100-AAM): 97.0939, Quality (AAM): 2.9061
+Description: I_IC = True & SAT_I >= 3.999999999999999 (Size = 308), Quality (100-AAM): 97.0979, Quality (AAM): 2.9021
